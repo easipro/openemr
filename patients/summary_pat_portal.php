@@ -52,326 +52,326 @@ global $ignoreAuth;
 ?>
 <html>
 <head>
-<title><?php echo xlt('Patient Information'); ?></title>
-<?php html_header_show(); ?>
-<link rel="stylesheet" href="<?php echo $css_header;?>" type="text/css">
-<link rel="stylesheet" type="text/css" href="<?php echo $web_root; ?>/library/js/fancybox/jquery.fancybox-1.2.6.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="<?php echo $web_root; ?>/library/dynarch_calendar.css">
-<script type="text/javascript" src="<?php echo $web_root; ?>/library/textformat.js"></script>
-<script type="text/javascript" src="<?php echo $web_root; ?>/library/dynarch_calendar.js"></script>
-<?php include_once("{$GLOBALS['srcdir']}/dynarch_calendar_en.inc.php"); ?>
-<script type="text/javascript" src="<?php echo $web_root; ?>/library/dynarch_calendar_setup.js"></script>
-<script type="text/javascript" src="<?php echo $web_root; ?>/library/dialog.js?v=<?php echo $v_js_includes; ?>"></script>
-<script type="text/javascript" src="<?php echo $GLOBALS['assets_static_relative']; ?>/jquery-min-1-3-2/index.js"></script>
-<script type="text/javascript" src="<?php echo $web_root; ?>/library/js/common.js"></script>
-<script type="text/javascript" src="<?php echo $web_root; ?>/library/js/fancybox/jquery.fancybox-1.2.6.js"></script>
-<link rel="stylesheet" href="css/base.css" type="text/css"/>
-<link rel="stylesheet" href="css/tables.css" type="text/css"/>
-<script type="text/javascript" language="JavaScript">
+  <title><?php echo xlt('Patient Information'); ?></title>
+  <?php html_header_show(); ?>
+  <link rel="stylesheet" href="<?php echo $css_header;?>" type="text/css">
+  <link rel="stylesheet" type="text/css" href="<?php echo $web_root; ?>/library/js/fancybox/jquery.fancybox-1.2.6.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="<?php echo $web_root; ?>/library/dynarch_calendar.css">
+  <script type="text/javascript" src="<?php echo $web_root; ?>/library/textformat.js"></script>
+  <script type="text/javascript" src="<?php echo $web_root; ?>/library/dynarch_calendar.js"></script>
+  <?php include_once("{$GLOBALS['srcdir']}/dynarch_calendar_en.inc.php"); ?>
+  <script type="text/javascript" src="<?php echo $web_root; ?>/library/dynarch_calendar_setup.js"></script>
+  <script type="text/javascript" src="<?php echo $web_root; ?>/library/dialog.js?v=<?php echo $v_js_includes; ?>"></script>
+  <script type="text/javascript" src="<?php echo $GLOBALS['assets_static_relative']; ?>/jquery-min-1-3-2/index.js"></script>
+  <script type="text/javascript" src="<?php echo $web_root; ?>/library/js/common.js"></script>
+  <script type="text/javascript" src="<?php echo $web_root; ?>/library/js/fancybox/jquery.fancybox-1.2.6.js"></script>
+  <link rel="stylesheet" href="css/base.css" type="text/css"/>
+  <link rel="stylesheet" href="css/tables.css" type="text/css"/>
+  <script type="text/javascript" language="JavaScript">
 
- function refreshme() {
-  location.reload();
- }
+   function refreshme() {
+    location.reload();
+   }
 
- function toggleIndicator(target,div) {
+   function toggleIndicator(target,div) {
 
-    $mode = $(target).find(".indicator").text();
-    if ( $mode == "<?php echo xla('collapse'); ?>" ) {
-        $(target).find(".indicator").text( "<?php echo xla('expand'); ?>" );
-        $("#"+div).hide();
-    } else {
-        $(target).find(".indicator").text( "<?php echo xla('collapse'); ?>" );
-        $("#"+div).show();
-    }
- }
+      $mode = $(target).find(".indicator").text();
+      if ( $mode == "<?php echo xla('collapse'); ?>" ) {
+          $(target).find(".indicator").text( "<?php echo xla('expand'); ?>" );
+          $("#"+div).hide();
+      } else {
+          $(target).find(".indicator").text( "<?php echo xla('collapse'); ?>" );
+          $("#"+div).show();
+      }
+   }
 
-function refreshAppointments() {
-      $("#appointments_ps_expand").load("get_appointments.php", { 'embeddedScreen' : true }, function() {
-          $(".edit_event").fancybox({
-              'overlayOpacity' : 0.0,
-              'showCloseButton' : true,
-              'centerOnScroll' : false,
-              'autoscale' : true,
-              'hihdeOnContentClick' : false,
-              'callbackOnClose' : function()  {
-                  refreshAppointments();
-              }
-          });
-      });
-}
-
-function show_date_fun(){
-  if(document.getElementById('show_date').checked == true){
-    document.getElementById('date_div').style.display = '';
-  }else{
-    document.getElementById('date_div').style.display = 'none';
+  function refreshAppointments() {
+        $("#appointments_ps_expand").load("get_appointments.php", { 'embeddedScreen' : true }, function() {
+            $(".edit_event").fancybox({
+                'overlayOpacity' : 0.0,
+                'showCloseButton' : true,
+                'centerOnScroll' : false,
+                'autoscale' : true,
+                'hihdeOnContentClick' : false,
+                'callbackOnClose' : function()  {
+                    refreshAppointments();
+                }
+            });
+        });
   }
-  return;
-}
 
-$(document).ready(function(){
-
-    // load divs
-      $("#labtestresults_ps_expand").load("get_lab_results.php", { 'embeddedScreen' : true }, function() {
-          // (note need to place javascript code here also to get the dynamic link to work)
-          $(".medium_modal").fancybox( {
-                  'overlayOpacity' : 0.0,
-                  'showCloseButton' : true,
-                  'frameHeight' : 500,
-                  'frameWidth' : 800,
-                  'centerOnScroll' : false,
-                  'callbackOnClose' : function()  {
-                  refreshme();
-                  }
-          });
-      });
-      $("#problemlist_ps_expand").load("get_problems.php", { 'embeddedScreen' : true }, function() {
-          // (note need to place javascript code here also to get the dynamic link to work)
-          $(".medium_modal").fancybox( {
-                  'overlayOpacity' : 0.0,
-                  'showCloseButton' : true,
-                  'frameHeight' : 500,
-                  'frameWidth' : 800,
-                  'centerOnScroll' : false,
-                  'callbackOnClose' : function()  {
-                  refreshme();
-                  }
-          });
-      });
-      $("#medicationlist_ps_expand").load("get_medications.php", { 'embeddedScreen' : true  }, function() {
-          // (note need to place javascript code here also to get the dynamic link to work)
-          $(".medium_modal").fancybox( {
-                  'overlayOpacity' : 0.0,
-                  'showCloseButton' : true,
-                  'frameHeight' : 500,
-                  'frameWidth' : 800,
-                  'centerOnScroll' : false,
-                  'callbackOnClose' : function()  {
-                  refreshme();
-                  }
-          });
-      });
-      $("#medicationallergylist_ps_expand").load("get_allergies.php", { 'embeddedScreen' : true }, function() {
-          // (note need to place javascript code here also to get the dynamic link to work)
-          $(".medium_modal").fancybox( {
-                  'overlayOpacity' : 0.0,
-                  'showCloseButton' : true,
-                  'frameHeight' : 500,
-                  'frameWidth' : 800,
-                  'centerOnScroll' : false,
-                  'callbackOnClose' : function()  {
-                  refreshme();
-                  }
-          });
-      });
-	  $("#amendments_ps_expand").load("get_amendments.php", { 'embeddedScreen' : true }, function() {
-          // (note need to place javascript code here also to get the dynamic link to work)
-          $(".medium_modal").fancybox( {
-                  'overlayOpacity' : 0.0,
-                  'showCloseButton' : true,
-                  'frameHeight' : 500,
-                  'frameWidth' : 800,
-                  'centerOnScroll' : false,
-                  'callbackOnClose' : function()  {
-                  refreshme();
-                  }
-          });
-      });
-      
-      
-      refreshAppointments();
-
-    // fancy box
-    enable_modals();
-
-  // modal for dialog boxes
-  $(".large_modal").fancybox( {
-    'overlayOpacity' : 0.0,
-    'showCloseButton' : true,
-    'frameHeight' : 600,
-    'frameWidth' : 1000,
-    'centerOnScroll' : false
-  });
-
-  // modal for image viewer
-  $(".image_modal").fancybox( {
-    'overlayOpacity' : 0.0,
-    'showCloseButton' : true,
-    'centerOnScroll' : false,
-    'autoscale' : true
-  });
-  
-  $(".add_event").fancybox( {
-  	'overlayOpacity' : 0.0,
-    'showCloseButton' : true,
-    'centerOnScroll' : false,
-    'autoscale' : true,
-    'hideOnContentClick' : false,
-    'onClose' : function() {
-    	refreshme();
+  function show_date_fun(){
+    if(document.getElementById('show_date').checked == true){
+      document.getElementById('date_div').style.display = '';
+    }else{
+      document.getElementById('date_div').style.display = 'none';
     }
+    return;
+  }
+
+  $(document).ready(function(){
+
+      // load divs
+        $("#labtestresults_ps_expand").load("get_lab_results.php", { 'embeddedScreen' : true }, function() {
+            // (note need to place javascript code here also to get the dynamic link to work)
+            $(".medium_modal").fancybox( {
+                    'overlayOpacity' : 0.0,
+                    'showCloseButton' : true,
+                    'frameHeight' : 500,
+                    'frameWidth' : 800,
+                    'centerOnScroll' : false,
+                    'callbackOnClose' : function()  {
+                    refreshme();
+                    }
+            });
+        });
+        $("#problemlist_ps_expand").load("get_problems.php", { 'embeddedScreen' : true }, function() {
+            // (note need to place javascript code here also to get the dynamic link to work)
+            $(".medium_modal").fancybox( {
+                    'overlayOpacity' : 0.0,
+                    'showCloseButton' : true,
+                    'frameHeight' : 500,
+                    'frameWidth' : 800,
+                    'centerOnScroll' : false,
+                    'callbackOnClose' : function()  {
+                    refreshme();
+                    }
+            });
+        });
+        $("#medicationlist_ps_expand").load("get_medications.php", { 'embeddedScreen' : true  }, function() {
+            // (note need to place javascript code here also to get the dynamic link to work)
+            $(".medium_modal").fancybox( {
+                    'overlayOpacity' : 0.0,
+                    'showCloseButton' : true,
+                    'frameHeight' : 500,
+                    'frameWidth' : 800,
+                    'centerOnScroll' : false,
+                    'callbackOnClose' : function()  {
+                    refreshme();
+                    }
+            });
+        });
+        $("#medicationallergylist_ps_expand").load("get_allergies.php", { 'embeddedScreen' : true }, function() {
+            // (note need to place javascript code here also to get the dynamic link to work)
+            $(".medium_modal").fancybox( {
+                    'overlayOpacity' : 0.0,
+                    'showCloseButton' : true,
+                    'frameHeight' : 500,
+                    'frameWidth' : 800,
+                    'centerOnScroll' : false,
+                    'callbackOnClose' : function()  {
+                    refreshme();
+                    }
+            });
+        });
+  	  $("#amendments_ps_expand").load("get_amendments.php", { 'embeddedScreen' : true }, function() {
+            // (note need to place javascript code here also to get the dynamic link to work)
+            $(".medium_modal").fancybox( {
+                    'overlayOpacity' : 0.0,
+                    'showCloseButton' : true,
+                    'frameHeight' : 500,
+                    'frameWidth' : 800,
+                    'centerOnScroll' : false,
+                    'callbackOnClose' : function()  {
+                    refreshme();
+                    }
+            });
+        });
+        
+        
+        refreshAppointments();
+
+      // fancy box
+      enable_modals();
+
+    // modal for dialog boxes
+    $(".large_modal").fancybox( {
+      'overlayOpacity' : 0.0,
+      'showCloseButton' : true,
+      'frameHeight' : 600,
+      'frameWidth' : 1000,
+      'centerOnScroll' : false
+    });
+
+    // modal for image viewer
+    $(".image_modal").fancybox( {
+      'overlayOpacity' : 0.0,
+      'showCloseButton' : true,
+      'centerOnScroll' : false,
+      'autoscale' : true
+    });
+    
+    $(".add_event").fancybox( {
+    	'overlayOpacity' : 0.0,
+      'showCloseButton' : true,
+      'centerOnScroll' : false,
+      'autoscale' : true,
+      'hideOnContentClick' : false,
+      'onClose' : function() {
+      	refreshme();
+      }
+    });
+
+          $(".generateCCR").click(
+          function() {
+                  if(document.getElementById('show_date').checked == true){
+                          if(document.getElementById('Start').value == '' || document.getElementById('End').value == ''){
+                                  alert('<?php echo xls('Please select a start date and end date') ?>');
+                                  return false;
+                          }
+                  }
+                  var ccrAction = document.getElementsByName('ccrAction');
+                  ccrAction[0].value = 'generate';
+                  var raw = document.getElementsByName('raw');
+                  raw[0].value = 'no';
+                  ccr_form.setAttribute("target", "_blank");
+                  $("#ccr_form").submit();
+                  ccr_form.setAttribute("target", "");
+          });
+          $(".generateCCR_raw").click(
+          function() {
+                  var ccrAction = document.getElementsByName('ccrAction');
+                  ccrAction[0].value = 'generate';
+                  var raw = document.getElementsByName('raw');
+                  raw[0].value = 'yes';
+                  ccr_form.setAttribute("target", "_blank");
+                  $("#ccr_form").submit();
+                  ccr_form.setAttribute("target", "");
+          });
+          $(".generateCCR_download_h").click(
+          function() {
+                  var ccrAction = document.getElementsByName('ccrAction');
+                  ccrAction[0].value = 'generate';
+                  var raw = document.getElementsByName('raw');
+                  raw[0].value = 'hybrid';
+                  $("#ccr_form").submit();
+          });
+          $(".generateCCR_download_p").click(
+          function() {
+                  if(document.getElementById('show_date').checked == true){
+                          if(document.getElementById('Start').value == '' || document.getElementById('End').value == ''){
+                                  alert('<?php echo xls('Please select a start date and end date') ?>');
+                                  return false;
+                          }
+                  }
+                  var ccrAction = document.getElementsByName('ccrAction');
+                  ccrAction[0].value = 'generate';
+                  var raw = document.getElementsByName('raw');
+                  raw[0].value = 'pure';
+                  $("#ccr_form").submit();
+          });
+          $(".viewCCD").click(
+          function() {
+                  var ccrAction = document.getElementsByName('ccrAction');
+                  ccrAction[0].value = 'viewccd';
+                  var raw = document.getElementsByName('raw');
+                  raw[0].value = 'no';
+                  ccr_form.setAttribute("target", "_blank");
+                  $("#ccr_form").submit();
+                  ccr_form.setAttribute("target", "");
+          });
+          $(".viewCCD_raw").click(
+          function() {
+                  var ccrAction = document.getElementsByName('ccrAction');
+                  ccrAction[0].value = 'viewccd';
+                  var raw = document.getElementsByName('raw');
+                  raw[0].value = 'yes';
+                  ccr_form.setAttribute("target", "_blank");
+                  $("#ccr_form").submit();
+                  ccr_form.setAttribute("target", "");
+          });
+          $(".viewCCD_download").click(
+          function() {
+                  var ccrAction = document.getElementsByName('ccrAction');
+                  ccrAction[0].value = 'viewccd';
+                  var raw = document.getElementsByName('raw');
+                  raw[0].value = 'pure';
+                  $("#ccr_form").submit();
+          });
+          $(".generateDoc_download").click(
+          function() {
+                  $("#doc_form").submit();
+          });
+  <?php if ($GLOBALS['phimail_enable']==true && $GLOBALS['phimail_ccr_enable']==true) { ?>
+          $(".viewCCR_send_dialog").click(
+          function() {
+                  $("#ccr_send_dialog").toggle();
+          });
+          $(".viewCCR_transmit").click(
+          function() {
+                  $(".viewCCR_transmit").attr('disabled','disabled');
+                  var ccrAction = document.getElementsByName('ccrAction');
+                  ccrAction[0].value = 'generate';
+                  var ccrRecipient = $("#ccr_send_to").val();
+                  var raw = document.getElementsByName('raw');
+                  raw[0].value = 'send '+ccrRecipient;
+                  if(ccrRecipient=="") {
+                    $("#ccr_send_message").html("<?php
+         echo xla('Please enter a valid Direct Address above.');?>");
+                    $("#ccr_send_result").show();
+                  } else {
+                    $(".viewCCR_transmit").attr('disabled','disabled');
+                    $("#ccr_send_message").html("<?php
+         echo xla('Working... this may take a minute.');?>");
+                    $("#ccr_send_result").show();
+                    var action=$("#ccr_form").attr('action');
+                    $.post(action, {ccrAction:'generate',raw:'send '+ccrRecipient,requested_by:'patient'},
+                       function(data) {
+                         if(data=="SUCCESS") {
+                           $("#ccr_send_message").html("<?php
+         echo xla('Your message was submitted for delivery to');
+                             ?> "+ccrRecipient);
+                           $("#ccr_send_to").val("");
+                         } else {
+                           $("#ccr_send_message").html(data);
+                         }
+                         $(".viewCCR_transmit").removeAttr('disabled');
+                    });
+                  }
+          });
+  <?php }
+        if ($GLOBALS['phimail_enable']==true && $GLOBALS['phimail_ccd_enable']==true) { ?>
+          $(".viewCCD_send_dialog").click(
+          function() {
+                  $("#ccd_send_dialog").toggle();
+          });
+          $(".viewCCD_transmit").click(
+          function() {
+                  $(".viewCCD_transmit").attr('disabled','disabled');
+                  var ccrAction = document.getElementsByName('ccrAction');
+                  ccrAction[0].value = 'viewccd';
+                  var ccdRecipient = $("#ccd_send_to").val();
+                  var raw = document.getElementsByName('raw');
+                  raw[0].value = 'send '+ccdRecipient;
+                  if(ccdRecipient=="") {
+                    $("#ccd_send_message").html("<?php
+         echo xla('Please enter a valid Direct Address above.');?>");
+                    $("#ccd_send_result").show();
+                  } else {
+                    $(".viewCCD_transmit").attr('disabled','disabled');
+                    $("#ccd_send_message").html("<?php
+         echo xla('Working... this may take a minute.');?>");
+                    $("#ccd_send_result").show();
+                    var action=$("#ccr_form").attr('action');
+                    $.post(action, {ccrAction:'viewccd',raw:'send '+ccdRecipient,requested_by:'patient'},
+                       function(data) {
+                         if(data=="SUCCESS") {
+                           $("#ccd_send_message").html("<?php
+         echo xla('Your message was submitted for delivery to');
+                             ?> "+ccdRecipient);
+                           $("#ccd_send_to").val("");
+                         } else {
+                           $("#ccd_send_message").html(data);
+                         }
+               	       $(".viewCCD_transmit").removeAttr('disabled');
+                    });
+                  }
+          });
+  <?php } ?>
+
   });
 
-        $(".generateCCR").click(
-        function() {
-                if(document.getElementById('show_date').checked == true){
-                        if(document.getElementById('Start').value == '' || document.getElementById('End').value == ''){
-                                alert('<?php echo xls('Please select a start date and end date') ?>');
-                                return false;
-                        }
-                }
-                var ccrAction = document.getElementsByName('ccrAction');
-                ccrAction[0].value = 'generate';
-                var raw = document.getElementsByName('raw');
-                raw[0].value = 'no';
-                ccr_form.setAttribute("target", "_blank");
-                $("#ccr_form").submit();
-                ccr_form.setAttribute("target", "");
-        });
-        $(".generateCCR_raw").click(
-        function() {
-                var ccrAction = document.getElementsByName('ccrAction');
-                ccrAction[0].value = 'generate';
-                var raw = document.getElementsByName('raw');
-                raw[0].value = 'yes';
-                ccr_form.setAttribute("target", "_blank");
-                $("#ccr_form").submit();
-                ccr_form.setAttribute("target", "");
-        });
-        $(".generateCCR_download_h").click(
-        function() {
-                var ccrAction = document.getElementsByName('ccrAction');
-                ccrAction[0].value = 'generate';
-                var raw = document.getElementsByName('raw');
-                raw[0].value = 'hybrid';
-                $("#ccr_form").submit();
-        });
-        $(".generateCCR_download_p").click(
-        function() {
-                if(document.getElementById('show_date').checked == true){
-                        if(document.getElementById('Start').value == '' || document.getElementById('End').value == ''){
-                                alert('<?php echo xls('Please select a start date and end date') ?>');
-                                return false;
-                        }
-                }
-                var ccrAction = document.getElementsByName('ccrAction');
-                ccrAction[0].value = 'generate';
-                var raw = document.getElementsByName('raw');
-                raw[0].value = 'pure';
-                $("#ccr_form").submit();
-        });
-        $(".viewCCD").click(
-        function() {
-                var ccrAction = document.getElementsByName('ccrAction');
-                ccrAction[0].value = 'viewccd';
-                var raw = document.getElementsByName('raw');
-                raw[0].value = 'no';
-                ccr_form.setAttribute("target", "_blank");
-                $("#ccr_form").submit();
-                ccr_form.setAttribute("target", "");
-        });
-        $(".viewCCD_raw").click(
-        function() {
-                var ccrAction = document.getElementsByName('ccrAction');
-                ccrAction[0].value = 'viewccd';
-                var raw = document.getElementsByName('raw');
-                raw[0].value = 'yes';
-                ccr_form.setAttribute("target", "_blank");
-                $("#ccr_form").submit();
-                ccr_form.setAttribute("target", "");
-        });
-        $(".viewCCD_download").click(
-        function() {
-                var ccrAction = document.getElementsByName('ccrAction');
-                ccrAction[0].value = 'viewccd';
-                var raw = document.getElementsByName('raw');
-                raw[0].value = 'pure';
-                $("#ccr_form").submit();
-        });
-        $(".generateDoc_download").click(
-        function() {
-                $("#doc_form").submit();
-        });
-<?php if ($GLOBALS['phimail_enable']==true && $GLOBALS['phimail_ccr_enable']==true) { ?>
-        $(".viewCCR_send_dialog").click(
-        function() {
-                $("#ccr_send_dialog").toggle();
-        });
-        $(".viewCCR_transmit").click(
-        function() {
-                $(".viewCCR_transmit").attr('disabled','disabled');
-                var ccrAction = document.getElementsByName('ccrAction');
-                ccrAction[0].value = 'generate';
-                var ccrRecipient = $("#ccr_send_to").val();
-                var raw = document.getElementsByName('raw');
-                raw[0].value = 'send '+ccrRecipient;
-                if(ccrRecipient=="") {
-                  $("#ccr_send_message").html("<?php
-       echo xla('Please enter a valid Direct Address above.');?>");
-                  $("#ccr_send_result").show();
-                } else {
-                  $(".viewCCR_transmit").attr('disabled','disabled');
-                  $("#ccr_send_message").html("<?php
-       echo xla('Working... this may take a minute.');?>");
-                  $("#ccr_send_result").show();
-                  var action=$("#ccr_form").attr('action');
-                  $.post(action, {ccrAction:'generate',raw:'send '+ccrRecipient,requested_by:'patient'},
-                     function(data) {
-                       if(data=="SUCCESS") {
-                         $("#ccr_send_message").html("<?php
-       echo xla('Your message was submitted for delivery to');
-                           ?> "+ccrRecipient);
-                         $("#ccr_send_to").val("");
-                       } else {
-                         $("#ccr_send_message").html(data);
-                       }
-                       $(".viewCCR_transmit").removeAttr('disabled');
-                  });
-                }
-        });
-<?php }
-      if ($GLOBALS['phimail_enable']==true && $GLOBALS['phimail_ccd_enable']==true) { ?>
-        $(".viewCCD_send_dialog").click(
-        function() {
-                $("#ccd_send_dialog").toggle();
-        });
-        $(".viewCCD_transmit").click(
-        function() {
-                $(".viewCCD_transmit").attr('disabled','disabled');
-                var ccrAction = document.getElementsByName('ccrAction');
-                ccrAction[0].value = 'viewccd';
-                var ccdRecipient = $("#ccd_send_to").val();
-                var raw = document.getElementsByName('raw');
-                raw[0].value = 'send '+ccdRecipient;
-                if(ccdRecipient=="") {
-                  $("#ccd_send_message").html("<?php
-       echo xla('Please enter a valid Direct Address above.');?>");
-                  $("#ccd_send_result").show();
-                } else {
-                  $(".viewCCD_transmit").attr('disabled','disabled');
-                  $("#ccd_send_message").html("<?php
-       echo xla('Working... this may take a minute.');?>");
-                  $("#ccd_send_result").show();
-                  var action=$("#ccr_form").attr('action');
-                  $.post(action, {ccrAction:'viewccd',raw:'send '+ccdRecipient,requested_by:'patient'},
-                     function(data) {
-                       if(data=="SUCCESS") {
-                         $("#ccd_send_message").html("<?php
-       echo xla('Your message was submitted for delivery to');
-                           ?> "+ccdRecipient);
-                         $("#ccd_send_to").val("");
-                       } else {
-                         $("#ccd_send_message").html(data);
-                       }
-             	       $(".viewCCD_transmit").removeAttr('disabled');
-                  });
-                }
-        });
-<?php } ?>
-
-});
-
-</script>
+  </script>
 
 </head>
 
@@ -689,6 +689,47 @@ expand_collapse_widget($widgetTitle, $widgetLabel, $widgetButtonLabel,
         	</div>
 		</td>
 	</tr>
+
+  <tr>
+      <td width='650px'>
+<?php
+  // Show current and upcoming appointments.
+   $query = "SELECT e.pc_eid, e.pc_aid, e.pc_title, e.pc_eventDate, " .
+    "e.pc_startTime, e.pc_hometext, u.fname, u.lname, u.mname, " .
+    "c.pc_catname " .
+    "FROM openemr_postcalendar_events AS e, users AS u, " .
+    "openemr_postcalendar_categories AS c WHERE " .
+    "e.pc_pid = ? AND e.pc_eventDate >= CURRENT_DATE AND " .
+    "u.id = e.pc_aid AND e.pc_catid = c.pc_catid " .
+    "ORDER BY e.pc_eventDate, e.pc_startTime";
+    //echo $query;
+   $res = sqlStatement($query, array($pid) );
+
+  // appointments expand collapse widget
+  $widgetTitle = "PRO-Patient Reported Outcomes";
+  $widgetLabel = "appointments";
+  $widgetButtonLabel = "Add";
+  $widgetButtonLink = "add_edit_event_user.php?pid=".htmlspecialchars($pid, ENT_QUOTES);
+  $widgetButtonClass = "edit_event iframe";
+  $linkMethod = "";
+  $bodyClass = "summary_item small";
+    if ($GLOBALS['portal_onsite_appt_modify'])
+    {
+      $widgetAuth = true;
+    }
+    else
+    {
+      $widgetAuth = false;
+    }
+  $fixedWidth = false;
+  expand_collapse_widget($widgetTitle, $widgetLabel, $widgetButtonLabel , $widgetButtonLink, $widgetButtonClass, $linkMethod, $bodyClass, $widgetAuth, $fixedWidth);
+       $count = 0;
+?>
+      <div id='stats_div' style="display:none">
+          <div style='margin-left:10px' class='text'><img src='images/ajax-loader.gif'/></div>
+      </div>
+    </td>
+  </tr>
    </table>
 
    </div>
