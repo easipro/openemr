@@ -73,6 +73,20 @@ $to_date = fixDate($_POST['form_to_date'], date('Y-m-d'));
                 font-size: 20px; float: left;
                 line-height: 0px;
             }
+            .panel-padding{
+                padding: 10px;
+            }
+        
+            .panel-bordered{
+                border: 1px solid #c8c8c8;
+                border-color: rgba(0,0,0,0.2);
+                -webkit-border-radius: 5px;
+                -moz-border-radius: 5px;
+                border-radius: 5px;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+            }
             .dm-ed-in-4 {
                 display: none;
             }
@@ -129,8 +143,9 @@ $to_date = fixDate($_POST['form_to_date'], date('Y-m-d'));
                 <li class="child-active ext-enc"><?php echo xlt('Existing Forms'); ?></li>
                 <li class="ext-proc"><?php echo xlt('Add New Form'); ?></li>
             </ul>
+            <hr>
         </div>
-        <div class="dm-ed-in-3 dm-ed-in-5">
+        <div class="dm-ed-in-3 dm-ed-in-5 panel-padding panel-bordered">
             <table width="100%;">
                 <tr class="dm-ed-in-9">
                     <td class="dm-ed-in-6"><label><?php echo xlt('Date'); ?></label></td>
@@ -164,7 +179,7 @@ $to_date = fixDate($_POST['form_to_date'], date('Y-m-d'));
                 </div>
             <?php } ?>
         </div>
-        <div class="dm-ed-in-4 dm-ed-in-5">
+        <div class="dm-ed-in-4 dm-ed-in-5 panel-padding panel-bordered">
             <table width="100%;">
                 <tr class="dm-ed-in-9">
                     <td class="dm-ed-in-6"><label><?php echo xlt('Date'); ?></label></td>
