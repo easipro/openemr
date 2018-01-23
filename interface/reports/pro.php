@@ -146,13 +146,7 @@ $to_date = fixDate($_POST['form_to_date'], date('Y-m-d'));
             <hr>
         </div>
         <div class="dm-ed-in-3 dm-ed-in-5 panel-padding panel-bordered">
-            <table width="100%;">
-                <tr class="dm-ed-in-9">
-                    <td class="dm-ed-in-6"><label><?php echo xlt('Date'); ?></label></td>
-                    <td class="dm-ed-in-6"><label><?php echo xlt('Diagnosis'); ?></label></td>
-                    <td class="dm-ed-in-6"><label><?php echo xlt('Provider'); ?></label></td>
-                    <td class="dm-ed-in-6"><label><?php echo xlt('Facility'); ?></label></td>
-                </tr>
+           
                 <?php
                 $query1 = "SELECT ee.*,CONCAT_WS(' ',u1.lname, u1.fname) AS provider,u2.organization AS facility
              FROM external_encounters AS ee
@@ -163,14 +157,24 @@ $to_date = fixDate($_POST['form_to_date'], date('Y-m-d'));
                 while ($row1 = sqlFetchArray($res1)) {
                     $records1[] = $row1;
                 }
-                foreach ($records1 as $value1) {
-                    ?>
-                    <tr>
-                        <td><span class="dm-ed-in-7"><?php echo oeFormatShortDate($value1['ee_date']); ?></span></td>
-                        <td><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['ee_encounter_diagnosis'], ENT_NOQUOTES); ?></span></td>
-                        <td><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['provider'], ENT_NOQUOTES); ?></span></td>
-                        <td><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['facility'], ENT_NOQUOTES); ?></span></td>
+                ?>
+                <?php if (!empty($records1)) { ?>
+                    <table width="100%;">
+                    <tr class="dm-ed-in-9">
+                        <td class="dm-ed-in-6"><label><?php echo xlt('Name'); ?></label></td>
+                        <td class="dm-ed-in-6"><label><?php echo xlt('Deadline'); ?></label></td>
+                        <td class="dm-ed-in-6"><label><?php echo xlt('Status'); ?></label></td>
+                        <td class="dm-ed-in-6"><label><?php echo xlt('Ordered By'); ?></label></td>
                     </tr>
+                    foreach ($records1 as $value1) {
+                        ?>
+                        <tr>
+                            <td><span class="dm-ed-in-7"><?php echo oeFormatShortDate($value1['ee_date']); ?></span></td>
+                            <td><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['ee_encounter_diagnosis'], ENT_NOQUOTES); ?></span></td>
+                            <td><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['provider'], ENT_NOQUOTES); ?></span></td>
+                            <td><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['facility'], ENT_NOQUOTES); ?></span></td>
+                        </tr>
+                    <?php } ?>
                 <?php } ?>
             </table>
             <?php if (empty($records1)) { ?>
@@ -180,37 +184,7 @@ $to_date = fixDate($_POST['form_to_date'], date('Y-m-d'));
             <?php } ?>
         </div>
         <div class="dm-ed-in-4 dm-ed-in-5 panel-padding panel-bordered">
-            <table width="100%;">
-                <tr class="dm-ed-in-9">
-                    <td class="dm-ed-in-6"><label><?php echo xlt('Date'); ?></label></td>
-                    <td class="dm-ed-in-6"><label><?php echo xlt('Code'); ?></label></td>
-                    <td class="dm-ed-in-6"><label><?php echo xlt('Code Text'); ?></label></td>
-                    <td class="dm-ed-in-6"><label><?php echo xlt('Facility'); ?></label></td>
-                </tr>
-                <?php
-                $query2 = "SELECT ep.*,u.organization AS facility
-             FROM external_procedures AS ep
-             LEFT JOIN users AS u ON u.id = ep.ep_facility_id
-             WHERE ep.ep_pid = ?";
-                $res2 = sqlStatement($query2, array($pid));
-                while ($row2 = sqlFetchArray($res2)) {
-                    $records2[] = $row2;
-                }
-                foreach ($records2 as $value2) {
-                    ?>
-                    <tr>
-                        <td><span class="dm-ed-in-7"><?php echo oeFormatShortDate($value2['ep_date']); ?></span></td>
-                        <td><span class="dm-ed-in-7"><?php echo htmlspecialchars($value2['ep_code_type'] . ':' . $value2['ep_code'], ENT_NOQUOTES); ?></span></td>
-                        <td><span class="dm-ed-in-7"><?php echo htmlspecialchars($value2['ep_code_text'], ENT_NOQUOTES); ?></span></td>
-                        <td><span class="dm-ed-in-7"><?php echo htmlspecialchars($value2['facility'], ENT_NOQUOTES); ?></span></td>
-                    </tr>
-            <?php } ?>
-            </table>
-                <?php if (empty($records2)) { ?>
-                <div class="dm-ed-in-8">
-                <?php echo xlt('Nothing to display'); ?>
-                </div>
-<?php } ?>
+            List Forms and Order Forms Go Here!
         </div>
     </body>
 </html>
