@@ -73,13 +73,6 @@ $to_date = fixDate($_POST['form_to_date'], date('Y-m-d'));
                 font-size: 20px; float: left;
                 line-height: 0px;
             }
-            .dm-ed-in-2 {
-                background-color: #999;
-                width: 32px;
-                height: 32px;
-                float: left;
-                margin:2px 6px 0 6px;background-size: contain;
-            }
             .dm-ed-in-4 {
                 display: none;
             }
@@ -116,15 +109,18 @@ $to_date = fixDate($_POST['form_to_date'], date('Y-m-d'));
                 margin-bottom: 0;
                 padding: 3px 5px;
                 text-decoration: none;
+                background-color: #f6f6f6;
+                color: #333333;
             }
             ul.ext-tab-head li.child-active {
                 border-bottom: 2px solid #003366;
+                background-color: #007fff;
+                color: #ffffff;
             }
         </style>
     </head>
     <body class="body_top">
         <div class="dm-ed-in-1">
-            <div class="dm-ed-in-2"></div>
             <h3><?php echo xlt('Patient Reported Outcomes') ?></h3>
         </div>
         <div class="clear"></div>
