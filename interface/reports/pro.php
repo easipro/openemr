@@ -211,7 +211,7 @@ require_once "$srcdir/formdata.inc.php";
                         xhr.setRequestHeader("Authorization", "Basic " + base64);
                     },
                     success: function(data) { 
-                        $('#form-list').removeAll();
+                        $('#form-list').html("");
                         var forms = data.Form;
                         var list = "<ul style='list-style:none;'>"
                         for (var i=0; i < forms.length; i++) {
