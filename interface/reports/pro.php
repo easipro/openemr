@@ -79,10 +79,12 @@ require_once "$srcdir/formdata.inc.php";
             }
             .dm-ed-in-4 {
                 display: none;
+                margin-left: 3%;
+                margin-top: 1%;
             }
             .dm-ed-in-5 {
-                margin-left: 10%;
-                margin-top: 3%;
+                margin-left: 3%;
+                margin-top: 1%;
             }
             .dm-ed-in-6 {
                 width: 20% !important;
