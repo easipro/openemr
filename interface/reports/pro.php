@@ -169,14 +169,16 @@ require_once "$srcdir/formdata.inc.php";
             <?php } ?>
         </div>
         <div class="dm-ed-in-4 dm-ed-in-5 panel-padding panel-bordered">
-           <a href="#" onclick="listForms()">List Forms</a>
+           <a href="#" onclick="alert('a');listForms();alert('b')">List Forms</a>
            |
            <a href="#" onclick="orderForm()">Order Form</a>
            <hr>
 
         </div>
+        
         <!-- Javascript goes here -->
         <script>
+
             $(document).ready(function() {
                 $('.ext-tab-head li').click(function() {
                     $('.ext-tab-head li').removeClass("child-active");
@@ -191,6 +193,7 @@ require_once "$srcdir/formdata.inc.php";
                     $('.dm-ed-in-4').show();
                 });
             });
+
             function listForms() {
                 $.ajax({
                     url: Server + "/2014-01/Forms/.json",
