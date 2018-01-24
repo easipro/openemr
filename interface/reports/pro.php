@@ -195,33 +195,34 @@ require_once "$srcdir/formdata.inc.php";
             });
 
             function listForms() {
-                $.ajax({
-                    url: Server + "/2014-01/Forms/.json",
-                    cache: false,
-                    type: "POST",
-                    data: "",
-                    dataType: "json",
+                alert('c');
+                // $.ajax({
+                //     url: Server + "/2014-01/Forms/.json",
+                //     cache: false,
+                //     type: "POST",
+                //     data: "",
+                //     dataType: "json",
 
-                    beforeSend: function(xhr) {
-                        var bytes = Crypto.charenc.Binary.stringToBytes("BBD62935-F76F-4EC8-8834-BDAA75DAD8AB:9A35D313-E7BC-41C9-8933-3A3D73953F73");
-                        var base64 = Crypto.util.bytesToBase64(bytes);
-                        xhr.setRequestHeader("Authorization", "Basic " + base64);
-                    },
+                //     beforeSend: function(xhr) {
+                //         var bytes = Crypto.charenc.Binary.stringToBytes("BBD62935-F76F-4EC8-8834-BDAA75DAD8AB:9A35D313-E7BC-41C9-8933-3A3D73953F73");
+                //         var base64 = Crypto.util.bytesToBase64(bytes);
+                //         xhr.setRequestHeader("Authorization", "Basic " + base64);
+                //     },
 
-                    success: function(data) { 
-                        var container = document.getElementById("all-forms");
-                        var forms = data.Form;
-                        for (var i=0; i < forms.length; i++) {
-                            var myform = document.createElement("div");
-                            myform.innerHTML = forms[i].OID + " : " + forms[i].Name + "";
-                            container.appendChild(myform);
-                        }
-                    },
+                //     success: function(data) { 
+                //         var container = document.getElementById("all-forms");
+                //         var forms = data.Form;
+                //         for (var i=0; i < forms.length; i++) {
+                //             var myform = document.createElement("div");
+                //             myform.innerHTML = forms[i].OID + " : " + forms[i].Name + "";
+                //             container.appendChild(myform);
+                //         }
+                //     },
                 
-                    error: function(jqXHR, textStatus, errorThrown) {
-                        document.write(jqXHR.responseText + ':' + textStatus + ':' + errorThrown);
-                    }
-                })
+                //     error: function(jqXHR, textStatus, errorThrown) {
+                //         document.write(jqXHR.responseText + ':' + textStatus + ':' + errorThrown);
+                //     }
+                // })
 
             }
         </script>
