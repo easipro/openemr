@@ -174,7 +174,7 @@ require_once "$srcdir/formdata.inc.php";
             <?php } ?>
         </div>
         <div class="dm-ed-in-4 dm-ed-in-5 panel-padding panel-bordered">
-           <a href="#" onclick="alert('a');listForms();alert('b')">List Forms</a>
+           <a href="#" onclick="listForms()">List Forms</a>
            |
            <a href="#" onclick="orderForm()">Order Form</a>
            <hr>
@@ -212,6 +212,7 @@ require_once "$srcdir/formdata.inc.php";
                     beforeSend: function(xhr) {
                         var bytes = Crypto.charenc.Binary.stringToBytes("BBD62935-F76F-4EC8-8834-BDAA75DAD8AB:9A35D313-E7BC-41C9-8933-3A3D73953F73");
                         var base64 = Crypto.util.bytesToBase64(bytes);
+                        alert(base64);
                         xhr.setRequestHeader("Authorization", "Basic " + base64);
                     },
                     success: function(data) { 
