@@ -74,18 +74,13 @@ require_once "$srcdir/formdata.inc.php";
                 box-sizing: border-box;
             }
 
-            panel-shadow{
+            .panel-shadow{
                 box-shadow: 0 1px 2px #999;
             }
             .dm-ed-in-4 {
                 display: none;
-                margin-left: 3%;
-                margin-top: 1%;
             }
-            .dm-ed-in-5 {
-                margin-left: 3%;
-                margin-top: 1%;
-            }
+            
             .dm-ed-in-6 {
                 width: 20% !important;
             }
@@ -175,12 +170,12 @@ require_once "$srcdir/formdata.inc.php";
                 </div>
             <?php } ?>
         </div>
-        <div class="dm-ed-in-4 dm-ed-in-5 panel-padding panel-bordered" style='height: 550px'>
+        <div class="dm-ed-in-4 dm-ed-in-5 panel-padding panel-bordered" style='height: 500px'>
            <a href="#" onclick="listForms()">List Forms</a>
            |
            <a href="#" onclick="orderForm()">Order Form</a>
            <hr>
-           <div class='panel-padding panel-bordered panel-shadow' id='form-list' style='height: 500px; overflow: scroll;'>
+           <div class='panel-padding panel-bordered panel-shadow' id='form-list' style='height: 450px; overflow: scroll;'>
                
            </div>
         </div>
