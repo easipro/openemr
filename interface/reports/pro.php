@@ -180,7 +180,8 @@ $to_date = fixDate($_POST['form_to_date'], date('Y-m-d'));
             <?php } ?>
         </div>
         <div class="dm-ed-in-4 dm-ed-in-5 panel-padding panel-bordered">
-            
+           <a href="#" onclick="">List Forms</a>
+           <a href="#" onclick="">Order Form</a>
         </div>
     </body>
 </html>
