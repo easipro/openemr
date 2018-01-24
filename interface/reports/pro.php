@@ -212,10 +212,13 @@ require_once "$srcdir/formdata.inc.php";
                     },
                     success: function(data) { 
                         var forms = data.Form;
+                        var list = "<ul style='list-style:none;'>"
                         for (var i=0; i < forms.length; i++) {
-                            var myform = "<input type='checkbox' value='"+forms[i].OID+"'>"+forms[i].Name+"</input>";
-                            $('#form-list').append(myform);
+                            var myform = "<li><input type='checkbox' value='"+forms[i].OID+"'>"+forms[i].Name+"</input></li>";
+                            list += myform;
                         }
+                        list += "</ul>"
+                        $('#form-list').append(list);
                     },
                 
                     error: function(jqXHR, textStatus, errorThrown) {
