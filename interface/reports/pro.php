@@ -178,7 +178,7 @@ require_once "$srcdir/formdata.inc.php";
            |
            <a href="#" onclick="orderForm()">Order Form</a>
            <hr>
-           <div class='panel-padding panel-bordered panel-shadow' id='form_list'>
+           <div class='panel-padding panel-bordered panel-shadow' id='form-list'>
                
            </div>
         </div>
