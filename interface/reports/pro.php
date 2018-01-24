@@ -59,6 +59,36 @@ $to_date = fixDate($_POST['form_to_date'], date('Y-m-d'));
                     $('.dm-ed-in-4').show();
                 });
             });
+            function listForms() {
+                $.ajax({
+                    url: Server + "/2014-01/Forms/.json",
+                    cache: false,
+                    type: "POST",
+                    data: "",
+                    dataType: "json",
+
+                    beforeSend: function(xhr) {
+                        var bytes = Crypto.charenc.Binary.stringToBytes("BBD62935-F76F-4EC8-8834-BDAA75DAD8AB:9A35D313-E7BC-41C9-8933-3A3D73953F73");
+                        var base64 = Crypto.util.bytesToBase64(bytes);
+                        xhr.setRequestHeader("Authorization", "Basic " + base64);
+                    },
+
+                    success: function(data) { 
+                        var container = document.getElementById("all-forms");
+                        var forms = data.Form;
+                        for (var i=0; i < forms.length; i++) {
+                            var myform = document.createElement("div");
+                            myform.innerHTML = forms[i].OID + " : " + forms[i].Name + "";
+                            container.appendChild(myform);
+                        }
+                    },
+                
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        document.write(jqXHR.responseText + ':' + textStatus + ':' + errorThrown);
+                    }
+                })
+
+            }
         </script>
         <style>
             .dm-ed-in-1 {
@@ -180,8 +210,11 @@ $to_date = fixDate($_POST['form_to_date'], date('Y-m-d'));
             <?php } ?>
         </div>
         <div class="dm-ed-in-4 dm-ed-in-5 panel-padding panel-bordered">
-           <a href="#" onclick="">List Forms</a>
-           <a href="#" onclick="">Order Form</a>
+           <a href="#" onclick="listForms()">List Forms</a>
+           |
+           <a href="#" onclick="orderForm()">Order Form</a>
+           <hr>
+
         </div>
     </body>
 </html>
