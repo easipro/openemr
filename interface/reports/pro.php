@@ -34,62 +34,17 @@ require_once("$srcdir/patient.inc");
 require_once("$srcdir/formatting.inc.php");
 require_once "$srcdir/options.inc.php";
 require_once "$srcdir/formdata.inc.php";
-
-$from_date = fixDate($_POST['form_from_date'], date('Y-m-d'));
-$to_date = fixDate($_POST['form_to_date'], date('Y-m-d'));
+// GET FORM DATA Syntax
+// $from_date = fixDate($_POST['form_from_date'], date('Y-m-d'));
+// $to_date = fixDate($_POST['form_to_date'], date('Y-m-d'));
 ?>
 <html>
+    <!-- HTML Head -->
     <head>
         <?php html_header_show(); ?>
         <title><?php echo xlt('PRO'); ?></title>
         <script type="text/javascript" src="<?php echo $GLOBALS['assets_static_relative']; ?>/jquery-min-1-3-2/index.js"></script>
         <link rel='stylesheet' href='<?php echo $css_header ?>' type='text/css'>
-        <script>
-            $(document).ready(function() {
-                $('.ext-tab-head li').click(function() {
-                    $('.ext-tab-head li').removeClass("child-active");
-                    $(this).addClass("child-active");
-                });
-                $('.ext-enc').click(function() {
-                    $('.dm-ed-in-4').hide();
-                    $('.dm-ed-in-3').show();
-                });
-                $('.ext-proc').click(function() {
-                    $('.dm-ed-in-3').hide();
-                    $('.dm-ed-in-4').show();
-                });
-            });
-            function listForms() {
-                $.ajax({
-                    url: Server + "/2014-01/Forms/.json",
-                    cache: false,
-                    type: "POST",
-                    data: "",
-                    dataType: "json",
-
-                    beforeSend: function(xhr) {
-                        var bytes = Crypto.charenc.Binary.stringToBytes("BBD62935-F76F-4EC8-8834-BDAA75DAD8AB:9A35D313-E7BC-41C9-8933-3A3D73953F73");
-                        var base64 = Crypto.util.bytesToBase64(bytes);
-                        xhr.setRequestHeader("Authorization", "Basic " + base64);
-                    },
-
-                    success: function(data) { 
-                        var container = document.getElementById("all-forms");
-                        var forms = data.Form;
-                        for (var i=0; i < forms.length; i++) {
-                            var myform = document.createElement("div");
-                            myform.innerHTML = forms[i].OID + " : " + forms[i].Name + "";
-                            container.appendChild(myform);
-                        }
-                    },
-                
-                    error: function(jqXHR, textStatus, errorThrown) {
-                        document.write(jqXHR.responseText + ':' + textStatus + ':' + errorThrown);
-                    }
-                })
-
-            }
-        </script>
         <style>
             .dm-ed-in-1 {
                 height: 35px;
@@ -163,6 +118,7 @@ $to_date = fixDate($_POST['form_to_date'], date('Y-m-d'));
             }
         </style>
     </head>
+    <!-- HTML Body -->
     <body class="body_top">
         <div class="dm-ed-in-1">
             <h3><?php echo xlt('Patient Reported Outcomes') ?></h3>
@@ -176,33 +132,36 @@ $to_date = fixDate($_POST['form_to_date'], date('Y-m-d'));
             <hr>
         </div>
         <div class="dm-ed-in-3 dm-ed-in-5 panel-padding panel-bordered">
-            <table width="100%;">
-                <tr class="dm-ed-in-9">
-                    <td class="dm-ed-in-6"><label><?php echo xlt('Name'); ?></label></td>
-                    <td class="dm-ed-in-6"><label><?php echo xlt('Deadline'); ?></label></td>
-                    <td class="dm-ed-in-6"><label><?php echo xlt('Status'); ?></label></td>
-                    <td class="dm-ed-in-6"><label><?php echo xlt('Ordered By'); ?></label></td>
-                </tr>
-                <?php
+            <?php
                 $query1 = "SELECT ee.*,CONCAT_WS(' ',u1.lname, u1.fname) AS provider,u2.organization AS facility
-             FROM external_encounters AS ee
-             LEFT JOIN users AS u1 ON u1.id = ee.ee_provider_id
-             LEFT JOIN users AS u2 ON u2.id = ee.ee_facility_id
-             WHERE ee.ee_pid = ?";
+                           FROM external_encounters AS ee
+                           LEFT JOIN users AS u1 ON u1.id = ee.ee_provider_id
+                           LEFT JOIN users AS u2 ON u2.id = ee.ee_facility_id
+                           WHERE ee.ee_pid = ?";
                 $res1 = sqlStatement($query1, array($pid));
                 while ($row1 = sqlFetchArray($res1)) {
                     $records1[] = $row1;
                 }
-                foreach ($records1 as $value1) {
-                    ?>
-                    <tr>
-                        <td><span class="dm-ed-in-7"><?php echo oeFormatShortDate($value1['ee_date']); ?></span></td>
-                        <td><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['ee_encounter_diagnosis'], ENT_NOQUOTES); ?></span></td>
-                        <td><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['provider'], ENT_NOQUOTES); ?></span></td>
-                        <td><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['facility'], ENT_NOQUOTES); ?></span></td>
+            ?>
+            <?php if (!empty($records1)) { ?>
+                <table width="100%;">
+                    <tr class="dm-ed-in-9">
+                        <td class="dm-ed-in-6"><label><?php echo xlt('Name'); ?></label></td>
+                        <td class="dm-ed-in-6"><label><?php echo xlt('Deadline'); ?></label></td>
+                        <td class="dm-ed-in-6"><label><?php echo xlt('Status'); ?></label></td>
+                        <td class="dm-ed-in-6"><label><?php echo xlt('Ordered By'); ?></label></td>
                     </tr>
-                <?php } ?>
-            </table>
+                    <?php foreach ($records1 as $value1) { ?>
+                        <tr>
+                            <td><span class="dm-ed-in-7"><?php echo oeFormatShortDate($value1['ee_date']); ?></span></td>
+                            <td><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['ee_encounter_diagnosis'], ENT_NOQUOTES); ?></span></td>
+                            <td><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['provider'], ENT_NOQUOTES); ?></span></td>
+                            <td><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['facility'], ENT_NOQUOTES); ?></span></td>
+                        </tr>
+                    <?php } ?>
+                </table>   
+            <?php }?>
+
             <?php if (empty($records1)) { ?>
                 <div class="dm-ed-in-8">
                     <?php echo xlt('Nothing to display'); ?>
@@ -216,5 +175,52 @@ $to_date = fixDate($_POST['form_to_date'], date('Y-m-d'));
            <hr>
 
         </div>
+        <!-- Javascript goes here -->
+        <script>
+            $(document).ready(function() {
+                $('.ext-tab-head li').click(function() {
+                    $('.ext-tab-head li').removeClass("child-active");
+                    $(this).addClass("child-active");
+                });
+                $('.ext-enc').click(function() {
+                    $('.dm-ed-in-4').hide();
+                    $('.dm-ed-in-3').show();
+                });
+                $('.ext-proc').click(function() {
+                    $('.dm-ed-in-3').hide();
+                    $('.dm-ed-in-4').show();
+                });
+            });
+            function listForms() {
+                $.ajax({
+                    url: Server + "/2014-01/Forms/.json",
+                    cache: false,
+                    type: "POST",
+                    data: "",
+                    dataType: "json",
+
+                    beforeSend: function(xhr) {
+                        var bytes = Crypto.charenc.Binary.stringToBytes("BBD62935-F76F-4EC8-8834-BDAA75DAD8AB:9A35D313-E7BC-41C9-8933-3A3D73953F73");
+                        var base64 = Crypto.util.bytesToBase64(bytes);
+                        xhr.setRequestHeader("Authorization", "Basic " + base64);
+                    },
+
+                    success: function(data) { 
+                        var container = document.getElementById("all-forms");
+                        var forms = data.Form;
+                        for (var i=0; i < forms.length; i++) {
+                            var myform = document.createElement("div");
+                            myform.innerHTML = forms[i].OID + " : " + forms[i].Name + "";
+                            container.appendChild(myform);
+                        }
+                    },
+                
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        document.write(jqXHR.responseText + ':' + textStatus + ':' + errorThrown);
+                    }
+                })
+
+            }
+        </script>
     </body>
 </html>
