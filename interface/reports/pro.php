@@ -229,7 +229,7 @@ require_once "$srcdir/formdata.inc.php";
             }
 
             function orderForm(){
-                var selectedForm = $('#form-list').find('input')//.is(':checked');
+                var selectedForm = $('#form-list').find('input:checked');
                 if(selectedForm.length>0){
                     alert(selectedForm.first().val());
                 }else{
