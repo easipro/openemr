@@ -230,7 +230,7 @@ require_once "$srcdir/formdata.inc.php";
 
             function orderForm(){
                 var selectedForm = $('#form_list input').is(':checked');
-                alert(selectedForm.length);
+                alert(selectedForm.length>0);
             }
         </script>
     </body>
