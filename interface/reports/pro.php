@@ -214,8 +214,7 @@ require_once "$srcdir/formdata.inc.php";
                         var container = document.getElementById("form-list");
                         var forms = data.Form;
                         for (var i=0; i < forms.length; i++) {
-                            var myform = document.createElement("div");
-                            myform.innerHTML = forms[i].OID + " : " + forms[i].Name + "";
+                            var myform = "<input type='checkbox' value='"+forms[i].OID+"'>"+forms[i].Name+"</input>";
                             container.appendChild(myform);
                         }
                     },
