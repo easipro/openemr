@@ -72,6 +72,10 @@ require_once "$srcdir/formdata.inc.php";
                 -moz-box-sizing: border-box;
                 box-sizing: border-box;
             }
+
+            panel-shadow{
+                box-shadow: 0 1px 2px #999;
+            }
             .dm-ed-in-4 {
                 display: none;
             }
@@ -173,7 +177,9 @@ require_once "$srcdir/formdata.inc.php";
            |
            <a href="#" onclick="orderForm()">Order Form</a>
            <hr>
-
+           <div class='panel-padding panel-bordered panel-shadow' id='form_list'>
+               
+           </div>
         </div>
         
         <!-- Javascript goes here -->
@@ -195,34 +201,31 @@ require_once "$srcdir/formdata.inc.php";
             });
 
             function listForms() {
-                alert('c');
-                // $.ajax({
-                //     url: Server + "/2014-01/Forms/.json",
-                //     cache: false,
-                //     type: "POST",
-                //     data: "",
-                //     dataType: "json",
-
-                //     beforeSend: function(xhr) {
-                //         var bytes = Crypto.charenc.Binary.stringToBytes("BBD62935-F76F-4EC8-8834-BDAA75DAD8AB:9A35D313-E7BC-41C9-8933-3A3D73953F73");
-                //         var base64 = Crypto.util.bytesToBase64(bytes);
-                //         xhr.setRequestHeader("Authorization", "Basic " + base64);
-                //     },
-
-                //     success: function(data) { 
-                //         var container = document.getElementById("all-forms");
-                //         var forms = data.Form;
-                //         for (var i=0; i < forms.length; i++) {
-                //             var myform = document.createElement("div");
-                //             myform.innerHTML = forms[i].OID + " : " + forms[i].Name + "";
-                //             container.appendChild(myform);
-                //         }
-                //     },
+                $.ajax({
+                    url: Server + "/2014-01/Forms/.json",
+                    cache: false,
+                    type: "POST",
+                    data: "",
+                    dataType: "json",
+                    beforeSend: function(xhr) {
+                        var bytes = Crypto.charenc.Binary.stringToBytes("BBD62935-F76F-4EC8-8834-BDAA75DAD8AB:9A35D313-E7BC-41C9-8933-3A3D73953F73");
+                        var base64 = Crypto.util.bytesToBase64(bytes);
+                        xhr.setRequestHeader("Authorization", "Basic " + base64);
+                    },
+                    success: function(data) { 
+                        var container = document.getElementById("form-list");
+                        var forms = data.Form;
+                        for (var i=0; i < forms.length; i++) {
+                            var myform = document.createElement("div");
+                            myform.innerHTML = forms[i].OID + " : " + forms[i].Name + "";
+                            container.appendChild(myform);
+                        }
+                    },
                 
-                //     error: function(jqXHR, textStatus, errorThrown) {
-                //         document.write(jqXHR.responseText + ':' + textStatus + ':' + errorThrown);
-                //     }
-                // })
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        document.write(jqXHR.responseText + ':' + textStatus + ':' + errorThrown);
+                    }
+                })
 
             }
         </script>
