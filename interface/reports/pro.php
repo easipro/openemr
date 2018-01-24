@@ -226,7 +226,16 @@ require_once "$srcdir/formdata.inc.php";
                         document.write(jqXHR.responseText + ':' + textStatus + ':' + errorThrown);
                     }
                 })
+            }
 
+            function orderForm(){
+                var selectedForm = $('#form_list input').is(':checked');
+                if(selectedForm.length == 0){
+                    alert("No form selected to order.");
+                }else{
+                    formOID = selectedForm[0].val();
+                    alert(formOID);
+                }
             }
         </script>
     </body>
