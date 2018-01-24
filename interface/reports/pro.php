@@ -211,11 +211,10 @@ require_once "$srcdir/formdata.inc.php";
                         xhr.setRequestHeader("Authorization", "Basic " + base64);
                     },
                     success: function(data) { 
-                        var container = document.getElementById("form-list");
                         var forms = data.Form;
                         for (var i=0; i < forms.length; i++) {
                             var myform = "<input type='checkbox' value='"+forms[i].OID+"'>"+forms[i].Name+"</input>";
-                            container.appendChild(myform);
+                            $('#form-list').append(myform);
                         }
                     },
                 
