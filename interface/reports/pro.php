@@ -43,8 +43,8 @@ require_once "$srcdir/formdata.inc.php";
     <head>
         <?php html_header_show(); ?>
         <title><?php echo xlt('PRO'); ?></title>
-        <script type="text/javascript" src="<?php echo $GLOBALS['assets_static_relative']; ?>/jquery-min-1-2-1/index.js"></script>
         <script type="text/javascript" src="<?php echo $GLOBALS['webroot'] ?>/library/js/crypto.js"></script>
+        <script type="text/javascript" src="<?php echo $GLOBALS['webroot'] ?>/library/js/jquery-1-7-1-min.js"></script>
         <link rel='stylesheet' href='<?php echo $css_header ?>' type='text/css'>
         <style>
             .dm-ed-in-1 {
