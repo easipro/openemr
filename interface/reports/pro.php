@@ -43,7 +43,7 @@ require_once "$srcdir/formdata.inc.php";
     <head>
         <?php html_header_show(); ?>
         <title><?php echo xlt('PRO'); ?></title>
-        <script type="text/javascript" src="<?php echo $GLOBALS['assets_static_relative']; ?>/jquery-min-1-3-2/index.js"></script>
+        <script type="text/javascript" src="<?php echo $GLOBALS['assets_static_relative']; ?>/jquery-min-1-2-1/index.js"></script>
         <script type="text/javascript" src="<?php echo $GLOBALS['webroot'] ?>/library/js/crypto.js"></script>
         <link rel='stylesheet' href='<?php echo $css_header ?>' type='text/css'>
         <style>
@@ -185,8 +185,6 @@ require_once "$srcdir/formdata.inc.php";
         
         <!-- Javascript goes here -->
         <script>
-            var Server = "https://www.assessmentcenter.net/ac_api";
-
             $(document).ready(function() {
                 $('.ext-tab-head li').click(function() {
                     $('.ext-tab-head li').removeClass("child-active");
@@ -204,7 +202,7 @@ require_once "$srcdir/formdata.inc.php";
 
             function listForms() {
                 $.ajax({
-                    url: Server + "/2014-01/Forms/.json",
+                    url: "https://www.assessmentcenter.net/ac_api/2014-01/Forms/.json",
                     cache: false,
                     type: "POST",
                     data: "",
@@ -212,7 +210,7 @@ require_once "$srcdir/formdata.inc.php";
                     beforeSend: function(xhr) {
                         var bytes = Crypto.charenc.Binary.stringToBytes("BBD62935-F76F-4EC8-8834-BDAA75DAD8AB:9A35D313-E7BC-41C9-8933-3A3D73953F73");
                         var base64 = Crypto.util.bytesToBase64(bytes);
-                        alert(base64);
+                        // alert(base64);
                         xhr.setRequestHeader("Authorization", "Basic " + base64);
                     },
                     success: function(data) { 
