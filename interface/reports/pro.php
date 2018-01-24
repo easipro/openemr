@@ -44,6 +44,7 @@ require_once "$srcdir/formdata.inc.php";
         <?php html_header_show(); ?>
         <title><?php echo xlt('PRO'); ?></title>
         <script type="text/javascript" src="<?php echo $GLOBALS['assets_static_relative']; ?>/jquery-min-1-3-2/index.js"></script>
+        <script type="text/javascript" src="<?php echo $GLOBALS['webroot'] ?>/library/js/crypto.js"></script>
         <link rel='stylesheet' href='<?php echo $css_header ?>' type='text/css'>
         <style>
             .dm-ed-in-1 {
@@ -184,6 +185,7 @@ require_once "$srcdir/formdata.inc.php";
         
         <!-- Javascript goes here -->
         <script>
+            var Server = "https://www.assessmentcenter.net/ac_api";
 
             $(document).ready(function() {
                 $('.ext-tab-head li').click(function() {
