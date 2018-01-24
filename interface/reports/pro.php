@@ -233,7 +233,7 @@ require_once "$srcdir/formdata.inc.php";
                 if(selectedForm.length == 0){
                     alert("No form selected to order.");
                 }else{
-                    formOID = selectedForm[0].val();
+                    formOID = selectedForm.first().val();
                     alert(formOID);
                 }
             }
