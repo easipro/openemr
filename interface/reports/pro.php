@@ -137,7 +137,7 @@ require_once "$srcdir/formdata.inc.php";
             <?php
                 $query1 = "SELECT *
                            FROM assessments
-                           WHERE patient_id = " . $pid;
+                           WHERE patient_id=?";
                 $res1 = sqlStatement($query1, array($pid));
                 while ($row1 = sqlFetchArray($res1)) {
                     $records1[] = $row1;
