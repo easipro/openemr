@@ -43,10 +43,10 @@ $status = $_POST['status']
 ?>
 
 <?php
-    echo "<script>console.log( 'Debug Objects: " . $formOID . "' );</script>";
+    // echo "<script>console.log( 'Debug Objects: " . $formOID . "' );</script>";
     
 
     $query = "INSERT INTO assessments (form_oid, form_name, user_id, deadline, patient_id, assessment_oid, status)
-              VALUES('1', '1', ?, '2018-01-01 00:00:00', 1, '1', '1')";
-    sqlStatement($query, $pid);
+              VALUES('1', '1', 1, '2018-01-01 00:00:00', 1, '1', '1')";
+    sqlStatement($query);
 ?>
