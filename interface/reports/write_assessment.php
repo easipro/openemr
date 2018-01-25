@@ -34,16 +34,17 @@ require_once("$srcdir/patient.inc");
 require_once("$srcdir/formatting.inc.php");
 require_once "$srcdir/options.inc.php";
 require_once "$srcdir/formdata.inc.php";
+$formOID = $_POST['formOID']
+$formName = mysql_real_escape_string($_POST['formName'])
+$expiration = mysql_real_escape_string($_POST['expiration'])
+$assessmentOID = mysql_real_escape_string($_POST['assessmentOID'])
+$uid = $_POST['uid']
+$status = mysql_real_escape_string($_POST['status'])
 ?>
 
 <?php
+    echo "<script>console.log( 'Debug Objects: " . $formOID . "' );</script>";
     
-    // $formOID = mysql_real_escape_string($_POST['formOID'])
-    // $formName = mysql_real_escape_string($_POST['formName'])
-    // $expiration = mysql_real_escape_string($_POST['expiration'])
-    // $assessmentOID = mysql_real_escape_string($_POST['assessmentOID'])
-    // $uid = $_POST['uid']
-    // $status = mysql_real_escape_string($_POST['status'])
 
     $query = "INSERT INTO assessments (form_oid, form_name, user_id, deadline, patient_id, assessment_oid, status)
               VALUES('1', '1', 1, '2018-01-01 00:00:00', 1, '1', '1')";
