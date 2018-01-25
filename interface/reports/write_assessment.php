@@ -47,6 +47,6 @@ $status = $_POST['status']
     
 
     $query = "INSERT INTO assessments (form_oid, form_name, user_id, deadline, patient_id, assessment_oid, status)
-              VALUES(?, '1', 1, '2018-01-01 00:00:00', 1, '1', '1')";
+              VALUES('?', '1', 1, '2018-01-01 00:00:00', 1, '1', '1')";
     sqlStatement($query, $formOID);
 ?>
