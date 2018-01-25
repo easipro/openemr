@@ -149,14 +149,14 @@ require_once "$srcdir/formdata.inc.php";
                         <td class="dm-ed-in-6"><label><?php echo xlt('Name'); ?></label></td>
                         <td class="dm-ed-in-6"><label><?php echo xlt('Deadline'); ?></label></td>
                         <td class="dm-ed-in-6"><label><?php echo xlt('Status'); ?></label></td>
-                        <td class="dm-ed-in-6"><label><?php echo xlt('Ordered By'); ?></label></td>
+                        <td class="dm-ed-in-6"><label><?php echo xlt('Score'); ?></label></td>
                     </tr>
                     <?php foreach ($records1 as $value1) { ?>
                         <tr>
                             <td><span class="dm-ed-in-7"><?php echo oeFormatShortDate($value1['form_name']); ?></span></td>
                             <td><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['deadline'], ENT_NOQUOTES); ?></span></td>
                             <td><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['status'], ENT_NOQUOTES); ?></span></td>
-                            <td><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['user_id'], ENT_NOQUOTES); ?></span></td>
+                            <td><span class="dm-ed-in-7"><?php echo htmlspecialchars('NA', ENT_NOQUOTES); ?></span></td>
                         </tr>
                     <?php } ?>
                 </table>   
@@ -214,7 +214,7 @@ require_once "$srcdir/formdata.inc.php";
                         var forms = data.Form;
                         var list = "<ul style='list-style:none;'>"
                         for (var i=0; i < forms.length; i++) {
-                            var myform = "<li><input type='checkbox' value='"+forms[i].OID+"'>"+forms[i].Name+"</input></li>";
+                            var myform = "<li><input type='checkbox' value='"+forms[i].OID+"' desc='"+ forms[i].Name +"'>"+forms[i].Name+"</input></li>";
                             list += myform;
                         }
                         list += "</ul>"
@@ -231,8 +231,10 @@ require_once "$srcdir/formdata.inc.php";
                 var selectedForm = $('#form-list').find('input:checked');
                 if(selectedForm.length>0){
                     // Ajax call started to start an assessment
+                    var formOID = selectedForm.first().val();
+                    var formName = selectedForm.first().attr('desc');
                     $.ajax({
-                        url: Server + "/2014-01/Assessments/" + selectedForm.first().val() + ".json",
+                        url: Server + "/2014-01/Assessments/" + formOID + ".json",
                         cache: false,
                         type: "POST",
                         // TODO: assign UID value dynamically
@@ -249,9 +251,9 @@ require_once "$srcdir/formdata.inc.php";
                             // OID=85746adc-e6d7-42a3-8985-859dcbf7ece2
                             // UID=1
                             // Expiration: Timestamp; duration: 3 days; timezone: CST
-                            alert("AssessmentID:" + data.OID);
-                            alert("User-defined ID:" + data.UID);
-                            alert("Expiration:" + data.Expiration);
+
+                            writeOrder(formOID, formName, data.OID, data.UID, data.Expiration)
+                            
                         },
                     
                         error: function(jqXHR, textStatus, errorThrown) {
@@ -262,6 +264,16 @@ require_once "$srcdir/formdata.inc.php";
                 }else{
                     alert("No form selected to order!");
                 }
+            }
+            function writeOrder(formOID, formName, assessmentOID, uid, expiration){
+                $.ajax({
+                    url: "./write_assessment.php",
+                    type: 'POST',
+                    data: {"formOID": formOID, 'formName': formName, 'assessmentOID': assessmentOID, 'uid': uid, 'expiration': expiration, 'status': 'ordered'},
+                    success: function() {
+                        alert("Successfully ordered form "+ formName);
+                    }
+                });
             }
         </script>
     </body>
