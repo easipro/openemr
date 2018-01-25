@@ -44,7 +44,12 @@ require_once "$srcdir/formdata.inc.php";
     $assessmentOID = mysql_real_escape_string($_POST['assessmentOID'])
     $uid = $_POST['uid']
     $status = mysql_real_escape_string($_POST['status'])
-    $query = "INSERT INTO assessments (form_oid, form_name, user_id, deadline, patient_id, assessment_oid, status)
-              VALUES('$formOID', 'formName', $uid, '$expiration', $pid, '$assessmentOID', '$status')";
-    sqlStatement($query);
+    echo $formOID
+    echo $formName
+    echo $expiration
+    echo $assessmentOID;
+    echo $status;
+    // $query = "INSERT INTO assessments (form_oid, form_name, user_id, deadline, patient_id, assessment_oid, status)
+    //           VALUES('$formOID', 'formName', $uid, '$expiration', $pid, '$assessmentOID', '$status')";
+    // sqlStatement($query);
 ?>
