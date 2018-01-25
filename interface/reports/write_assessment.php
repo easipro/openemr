@@ -35,11 +35,7 @@ require_once("$srcdir/formatting.inc.php");
 require_once "$srcdir/options.inc.php";
 require_once "$srcdir/formdata.inc.php";
 $formOID = $_POST['formOID']
-$formName = mysql_real_escape_string($_POST['formName'])
-$expiration = mysql_real_escape_string($_POST['expiration'])
-$assessmentOID = mysql_real_escape_string($_POST['assessmentOID'])
-$uid = $_POST['uid']
-$status = mysql_real_escape_string($_POST['status'])
+
 ?>
 
 <?php
