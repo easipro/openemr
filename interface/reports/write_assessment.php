@@ -34,12 +34,12 @@ require_once("$srcdir/patient.inc");
 require_once("$srcdir/formatting.inc.php");
 require_once "$srcdir/options.inc.php";
 require_once "$srcdir/formdata.inc.php";
-$formOID = $_POST['formOID']
-$formName = $_POST['formName']
-// $expiration = $_POST['expiration']
-// $assessmentOID = $_POST['assessmentOID']
-// $uid = $_POST['uid']
-// $status = $_POST['status']
+$formOID = $_POST['formOID'];
+$formName = $_POST['formName'];
+$expiration = $_POST['expiration'];
+$assessmentOID = $_POST['assessmentOID'];
+$uid = $_POST['uid'];
+$status = $_POST['status'];
 ?>
 
 <?php
@@ -47,6 +47,6 @@ $formName = $_POST['formName']
     
 
     $query = "INSERT INTO assessments (form_oid, form_name, user_id, deadline, patient_id, assessment_oid, status)
-              VALUES('1', '1', 1, '2018-01-01 00:00:00', 1, '1', '1')";
+              VALUES('$formOID', '$formName', 1, '$expiration', '$pid', '$assessmentOID', '$status')";
     sqlStatement($query);
 ?>
