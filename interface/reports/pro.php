@@ -135,11 +135,9 @@ require_once "$srcdir/formdata.inc.php";
         </div>
         <div class="dm-ed-in-3 dm-ed-in-5 panel-padding panel-bordered">
             <?php
-                $query1 = "SELECT ee.*,CONCAT_WS(' ',u1.lname, u1.fname) AS provider,u2.organization AS facility
-                           FROM external_encounters AS ee
-                           LEFT JOIN users AS u1 ON u1.id = ee.ee_provider_id
-                           LEFT JOIN users AS u2 ON u2.id = ee.ee_facility_id
-                           WHERE ee.ee_pid = ?";
+                $query1 = "SELECT *
+                           FROM assessments
+                           WHERE patient_id = " . $pid;
                 $res1 = sqlStatement($query1, array($pid));
                 while ($row1 = sqlFetchArray($res1)) {
                     $records1[] = $row1;
@@ -155,10 +153,10 @@ require_once "$srcdir/formdata.inc.php";
                     </tr>
                     <?php foreach ($records1 as $value1) { ?>
                         <tr>
-                            <td><span class="dm-ed-in-7"><?php echo oeFormatShortDate($value1['ee_date']); ?></span></td>
-                            <td><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['ee_encounter_diagnosis'], ENT_NOQUOTES); ?></span></td>
-                            <td><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['provider'], ENT_NOQUOTES); ?></span></td>
-                            <td><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['facility'], ENT_NOQUOTES); ?></span></td>
+                            <td><span class="dm-ed-in-7"><?php echo oeFormatShortDate($value1['form_name']); ?></span></td>
+                            <td><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['deadline'], ENT_NOQUOTES); ?></span></td>
+                            <td><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['status'], ENT_NOQUOTES); ?></span></td>
+                            <td><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['user_id'], ENT_NOQUOTES); ?></span></td>
                         </tr>
                     <?php } ?>
                 </table>   
@@ -248,6 +246,9 @@ require_once "$srcdir/formdata.inc.php";
                         },
                     
                         success: function(data) {
+                            // OID=85746adc-e6d7-42a3-8985-859dcbf7ece2
+                            // UID=1
+                            // Expiration: Timestamp; duration: 3 days; timezone: CST
                             alert("AssessmentID:" + data.OID);
                             alert("User-defined ID:" + data.UID);
                             alert("Expiration:" + data.Expiration);
