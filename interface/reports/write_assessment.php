@@ -37,15 +37,19 @@ require_once "$srcdir/formdata.inc.php";
 ?>
 
 <?php
-    $formOID = $_POST['formOID']
-    $formName = $_POST['formName']
-    $expiration = $_POST['expiration']
-    $assessmentOID = $_POST['assessmentOID']
-    $uid = $_POST['uid']
-    $status = $_POST['status']
-    $query = "INSERT INTO assessments 
-              (`form_oid`, `form_name`, `user_id`, `deadline`, `patient_id`, `assessment_oid`, `status`)
-              VALUES
-              (?, ?, ?, ?, ?, ?, ?)";
-    sqlStatement($query, $formOID, $formName, $uid, $expiration, $pid, $assessmentOID, $status);
+    $query1 = "SELECT *
+               FROM assessments
+               WHERE patient_id=?";
+    $res1 = sqlStatement($query1, array($pid));
+    // $formOID = $_POST['formOID']
+    // $formName = $_POST['formName']
+    // $expiration = $_POST['expiration']
+    // $assessmentOID = $_POST['assessmentOID']
+    // $uid = $_POST['uid']
+    // $status = $_POST['status']
+    // $query = "INSERT INTO assessments 
+    //           (form_oid, form_name, user_id, deadline, patient_id, assessment_oid, status)
+    //           VALUES
+    //           (?, ?, ?, ?, ?, ?, ?)";
+    // sqlStatement($query, $formOID, $formName, $uid, $expiration, $pid, $assessmentOID, $status);
 ?>
