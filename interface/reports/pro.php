@@ -182,6 +182,7 @@ require_once "$srcdir/formdata.inc.php";
         
         <!-- Javascript goes here -->
         <script>
+            var Server = "https://www.assessmentcenter.net/ac_api";
             $(document).ready(function() {
                 $('.ext-tab-head li').click(function() {
                     $('.ext-tab-head li').removeClass("child-active");
@@ -231,7 +232,32 @@ require_once "$srcdir/formdata.inc.php";
             function orderForm(){
                 var selectedForm = $('#form-list').find('input:checked');
                 if(selectedForm.length>0){
-                    alert(selectedForm.first().val());
+                    // Ajax call started to start an assessment
+                    $.ajax({
+                        url: Server + "/2014-01/Assessments/" + selectedForm.first().val() + ".json",
+                        cache: false,
+                        type: "POST",
+                        // TODO: assign UID value dynamically
+                        data: "UID=1",
+                        dataType: "json",
+
+                        beforeSend: function(xhr) {
+                            var bytes = Crypto.charenc.Binary.stringToBytes("BBD62935-F76F-4EC8-8834-BDAA75DAD8AB:9A35D313-E7BC-41C9-8933-3A3D73953F73");
+                            var base64 = Crypto.util.bytesToBase64(bytes);
+                            xhr.setRequestHeader("Authorization", "Basic " + base64);
+                        },
+                    
+                        success: function(data) {
+                            alert("AssessmentID:" + data.OID);
+                            alert("User-defined ID:" + data.UID);
+                            alert("Expiration:" + data.Expiration);
+                        },
+                    
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            document.write(jqXHR.responseText + ':' + textStatus + ':' + errorThrown);
+                        }
+                    });
+                    // Ajax call ended                    
                 }else{
                     alert("No form selected to order!");
                 }
