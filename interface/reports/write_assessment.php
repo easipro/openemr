@@ -35,11 +35,11 @@ require_once("$srcdir/formatting.inc.php");
 require_once "$srcdir/options.inc.php";
 require_once "$srcdir/formdata.inc.php";
 $formOID = $_POST['formOID']
-$formName = $_POST['formName']
-$expiration = $_POST['expiration']
-$assessmentOID = $_POST['assessmentOID']
-$uid = $_POST['uid']
-$status = $_POST['status']
+// $formName = $_POST['formName']
+// $expiration = $_POST['expiration']
+// $assessmentOID = $_POST['assessmentOID']
+// $uid = $_POST['uid']
+// $status = $_POST['status']
 ?>
 
 <?php
