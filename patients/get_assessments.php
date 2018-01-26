@@ -62,7 +62,7 @@ if ( sqlNumRows($res) > 0 ) { ?>
 	{
 		echo xlt("No Assignment to Display.");
 	}
-	echo "<div id='Content' class='panel-padding panel-padding panel-shadow'></div>"
+	echo "<div id='Content' class='panel-padding panel-bordered panel-shadow' style='margin-top:10px;'></div>"
 ?>
 
 <script>

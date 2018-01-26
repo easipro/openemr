@@ -71,7 +71,8 @@ global $ignoreAuth;
   <link rel="stylesheet" href="css/base.css" type="text/css"/>
   <link rel="stylesheet" href="css/tables.css" type="text/css"/>
   <style>
-     padding: 10px;
+        .panel-padding{
+            padding: 10px;
         }
     
         .panel-bordered{
