@@ -69,29 +69,30 @@ if ( sqlNumRows($res) > 0 ) { ?>
 
 	var Server = "https://www.assessmentcenter.net/ac_api";
   
-  function selectResponse(obj){
-		renderScreen(obj)
+  function selectResponse(obj, assessmentOID){
+		renderScreen(obj, assessmentOID)
   }
  
-	function renderScreen(obj){
+	function renderScreen(obj, assessmentOID){
 		$.ajax({
-			url: Server + document.getElementById("UID").value + ".json",
+			url: Server + "/2014-01/Participants/" + assessmentOID + ".json",
 			cache: false,
 			type: "POST",
 			data: "ItemResponseOID=" + obj.name + "&Response=" + obj.id,
 			dataType: "json",
 			
 			beforeSend: function(xhr) {
-				var bytes = Crypto.charenc.Binary.stringToBytes(document.getElementById("txtRegistration").value + ":" + document.getElementById("txtToken").value);
-				var base64 = Crypto.util.bytesToBase64(bytes);
-				xhr.setRequestHeader("Authorization", "Basic " + base64);
+				var bytes = Crypto.charenc.Binary.stringToBytes("BBD62935-F76F-4EC8-8834-BDAA75DAD8AB:9A35D313-E7BC-41C9-8933-3A3D73953F73");
+	      var base64 = Crypto.util.bytesToBase64(bytes);
+	      // alert(base64);
+	      xhr.setRequestHeader("Authorization", "Basic " + base64);
 			},
 	
 	success: function(data) { 
 
 	if(data.DateFinished !=''){
 		document.getElementById("Content").innerHTML = "You have finished the assessment.<br /> Thank you";
-		document.getElementById("btnStart").disabled = true;
+		// document.getElementById("btnStart").disabled = true;
 		return
 	}
 	var screen ="";
@@ -145,7 +146,7 @@ function startAssessment(assessmentOID){
 						screen = screen + "<div style=\'height: 30px\' >" + data.Items[0].Elements[j].Description + "</div>"
 					}else{
 						for(var k=0; k < data.Items[0].Elements[j].Map.length; k++){
-							screen = screen + "<div style=\'height: 50px\' ><input type=\'button\' class='btn-submit' id=\'" + data.Items[0].Elements[j].Map[k].Value + "\' name=\'" + data.Items[0].Elements[j].Map[k].ItemResponseOID + "\' value=\'" + data.Items[0].Elements[j].Map[k].Description +  "\' onclick=selectResponse(this) />"    + "</div>"; 
+							screen = screen + "<div style=\'height: 50px\' ><input type=\'button\' class='btn-submit' id=\'" + data.Items[0].Elements[j].Map[k].Value + "\' name=\'" + data.Items[0].Elements[j].Map[k].ItemResponseOID + "\' value=\'" + data.Items[0].Elements[j].Map[k].Description +  "\' onclick=selectResponse(this,"+assessmentOID+") />"    + "</div>"; 
 						}
 					}
 				}
