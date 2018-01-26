@@ -36,7 +36,7 @@ require_once "$srcdir/options.inc.php";
 require_once "$srcdir/formdata.inc.php";
 $formOID = $_POST['formOID'];
 $formName = $_POST['formName'];
-$expiration = $_POST['expiration'];
+$expiration = date_create_from_format('Y-m-d H:i:s', $_POST['expiration'], new DateTimeZone("America/Chicago"));
 $assessmentOID = $_POST['assessmentOID'];
 $uid = $_POST['uid'];
 $status = $_POST['status'];
