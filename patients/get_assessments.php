@@ -123,7 +123,7 @@ if ( sqlNumRows($res) > 0 ) { ?>
 
 }
 
-function startScreen(assessmentOID){
+function startAssessment(assessmentOID){
 	$.ajax({
 		url: Server + "/2014-01/Participants/" + assessmentOID + ".json",
 		cache: false,
