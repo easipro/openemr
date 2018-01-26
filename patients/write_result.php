@@ -35,7 +35,7 @@ require_once("$srcdir/formatting.inc.php");
 require_once "$srcdir/options.inc.php";
 require_once "$srcdir/formdata.inc.php";
 $score = $_POST['score'];
-$stdErr = $_POST['stdErr']
+$stdErr = $_POST['stdErr'];
 $assessmentOID = $_POST['assessmentOID'];
 
 ?>
