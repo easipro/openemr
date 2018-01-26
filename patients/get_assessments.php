@@ -146,7 +146,7 @@ function startAssessment(assessmentOID){
 						screen = screen + "<div style=\'height: 30px\' >" + data.Items[0].Elements[j].Description + "</div>"
 					}else{
 						for(var k=0; k < data.Items[0].Elements[j].Map.length; k++){
-							screen = screen + "<div style=\'height: 50px\' ><input type=\'button\' class='btn-submit' id=\'" + data.Items[0].Elements[j].Map[k].Value + "\' name=\'" + data.Items[0].Elements[j].Map[k].ItemResponseOID + "\' value=\'" + data.Items[0].Elements[j].Map[k].Description +  "\' onclick=selectResponse(this,"+assessmentOID+") />"    + "</div>"; 
+							screen = screen + "<div style=\'height: 50px\' ><input type=\'button\' class='btn-submit' id=\'" + data.Items[0].Elements[j].Map[k].Value + "\' name=\'" + data.Items[0].Elements[j].Map[k].ItemResponseOID + "\' value=\'" + data.Items[0].Elements[j].Map[k].Description +  "\' onclick=selectResponse(this,'"+assessmentOID+"') />"    + "</div>"; 
 						}
 					}
 				}
