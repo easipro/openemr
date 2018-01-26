@@ -60,7 +60,7 @@ if ( sqlNumRows($res) > 0 ) { ?>
   	}
 	else
 	{
-		echo xlt("No Assignment to Display.");
+		echo xlt("No Assessment to Display.");
 	}
 	echo "<div id='Content' class='panel-padding panel-bordered panel-shadow' style='margin-top:10px;'></div>"
 ?>
@@ -68,6 +68,14 @@ if ( sqlNumRows($res) > 0 ) { ?>
 <script>
 
 	var Server = "https://www.assessmentcenter.net/ac_api";
+
+	function writeResult(score, stdErr, assessmentOID){
+		$.ajax({
+			url: './write_result.php',
+			data: {'score': score, 'stdErr':stdErr, 'assessmentOID': assessmentOID},
+			type: 'POST'
+		});
+	}
   
   function selectResponse(obj, assessmentOID){
 		renderScreen(obj, assessmentOID)
@@ -89,28 +97,44 @@ if ( sqlNumRows($res) > 0 ) { ?>
 			},
 	
 	success: function(data) { 
+		if(data.DateFinished !=''){
+			document.getElementById("Content").innerHTML = "You have finished the assessment.<br /> Thank you";
+			document.getElementById("asst_"+assessmentOID).innerHTML = "<i class='fa fa-check-circle'></i>";
+			$.ajax({
+				url: Server + "/Results/" + assessmentOID + ".json",
+				cache: false,
+	      type: "POST",
+	      data: "",
+	      dataType: "json",
+	      beforeSend: function(xhr) {
+	        var bytes = Crypto.charenc.Binary.stringToBytes("BBD62935-F76F-4EC8-8834-BDAA75DAD8AB:9A35D313-E7BC-41C9-8933-3A3D73953F73");
+		      var base64 = Crypto.util.bytesToBase64(bytes);
+		      // alert(base64);
+		      xhr.setRequestHeader("Authorization", "Basic " + base64);
+	      },
+	      success: function(data){
+	      	// score, error, assessmentOID
+					writeResult(data.Theta, data.StdError, assessmentOID);
+	      }
+			});
+			return
+		}
+		var screen ="";
 
-	if(data.DateFinished !=''){
-		document.getElementById("Content").innerHTML = "You have finished the assessment.<br /> Thank you";
-		document.getElementById("asst_"+assessmentOID).innerHTML = "<i class='fa fa-check-circle'></i>";
-		return
-	}
-	var screen ="";
-
-			for(var j=0; j < data.Items[0].Elements.length; j++){
-			
-				if(typeof(data.Items[0].Elements[j].Map) == 'undefined'){
-					screen = screen +"<div style=\'height: 30px\' >" +  data.Items[0].Elements[j].Description + "</div>"
-				}else{
+				for(var j=0; j < data.Items[0].Elements.length; j++){
 				
-					for(var k=0; k < data.Items[0].Elements[j].Map.length; k++){
-						screen = screen + "<div style=\'height: 50px\' ><input type=\'button\' class='btn-submit' id=\'" + data.Items[0].Elements[j].Map[k].Value + "\' name=\'" + data.Items[0].Elements[j].Map[k].ItemResponseOID + "\' value=\'" + data.Items[0].Elements[j].Map[k].Description +  "\' onclick=selectResponse(this,'"+assessmentOID+"') />"    + "</div>"; 
+					if(typeof(data.Items[0].Elements[j].Map) == 'undefined'){
+						screen = screen +"<div style=\'height: 30px\' >" +  data.Items[0].Elements[j].Description + "</div>"
+					}else{
+					
+						for(var k=0; k < data.Items[0].Elements[j].Map.length; k++){
+							screen = screen + "<div style=\'height: 50px\' ><input type=\'button\' class='btn-submit' id=\'" + data.Items[0].Elements[j].Map[k].Value + "\' name=\'" + data.Items[0].Elements[j].Map[k].ItemResponseOID + "\' value=\'" + data.Items[0].Elements[j].Map[k].Description +  "\' onclick=selectResponse(this,'"+assessmentOID+"') />"    + "</div>"; 
+						}
+					
 					}
 				
 				}
-			
-			}
-	document.getElementById("Content").innerHTML = screen;
+		document.getElementById("Content").innerHTML = screen;
 
 	},
 	
