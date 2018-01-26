@@ -53,7 +53,7 @@ if ( sqlNumRows($res) > 0 ) { ?>
 				}else if($row['status']=='in-progress'){
 					echo "<td>Continue Assessment</td>";
 				}else if($row['status']=='completed'){
-					echo "<td><i class='fa fa-print'></i></td>";
+					echo "<td><i class='fa fa-check-circle'></i></td>";
 				}
 				echo "</tr>";
   		}
