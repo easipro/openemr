@@ -48,7 +48,7 @@ if ( sqlNumRows($res) > 0 ) { ?>
 				echo "<td>".text($row['deadline'])."</td>";
 				echo "<td>".text($row['status'])."</td>";
 				if($row['status']=='ordered'){
-					echo "<td><a href='#' onclick=\"startAssessment('" . text($row['assessment_oid']) . "')\">Start Assessment</a></td>";
+					echo "<td id=\"'asst_" . text($row['assessment_oid']) . "'\"><a href='#' onclick=\"startAssessment('" . text($row['assessment_oid']) . "')\">Start Assessment</a></td>";
 				}else if($row['status']=='in-progress'){
 					echo "<td>Continue Assessment</td>";
 				}else if($row['status']=='completed'){
@@ -92,7 +92,7 @@ if ( sqlNumRows($res) > 0 ) { ?>
 
 	if(data.DateFinished !=''){
 		document.getElementById("Content").innerHTML = "You have finished the assessment.<br /> Thank you";
-		// document.getElementById("btnStart").disabled = true;
+		document.getElementById("asst_"+assessmentOID).innerHTML = "<i class='fa fa-check-circle'></i>";
 		return
 	}
 	var screen ="";
