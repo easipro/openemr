@@ -715,6 +715,9 @@ expand_collapse_widget($widgetTitle, $widgetLabel, $widgetButtonLabel,
               expand_collapse_widget($widgetTitle, $widgetLabel, $widgetButtonLabel , $widgetButtonLink, $widgetButtonClass, $linkMethod, $bodyClass, $widgetAuth, $fixedWidth);
                    $count = 0;
               ?>
+              <div id='stats_div' style="display:none">
+                  <div style='margin-left:10px' class='text'><img src='images/ajax-loader.gif'/></div>
+              </div>
         </td>
     </tr>
    </table>
