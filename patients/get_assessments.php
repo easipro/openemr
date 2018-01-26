@@ -101,7 +101,7 @@ if ( sqlNumRows($res) > 0 ) { ?>
 			document.getElementById("Content").innerHTML = "You have finished the assessment.<br /> Thank you";
 			document.getElementById("asst_"+assessmentOID).innerHTML = "<i class='fa fa-check-circle'></i>";
 			$.ajax({
-				url: Server + "/Results/" + assessmentOID + ".json",
+				url: Server + "/2014-01/Results/" + assessmentOID + ".json",
 				cache: false,
 	      type: "POST",
 	      data: "",
@@ -114,7 +114,7 @@ if ( sqlNumRows($res) > 0 ) { ?>
 	      },
 	      success: function(data){
 	      	// score, error, assessmentOID
-					writeResult(data.Theta, data.StdError, assessmentOID);
+					writeResult(data.Items[0].Theta, data.Items[0].StdError, assessmentOID);
 	      }
 			});
 			return
