@@ -690,46 +690,33 @@ expand_collapse_widget($widgetTitle, $widgetLabel, $widgetButtonLabel,
 		</td>
 	</tr>
 
-  <tr>
-      <td width='650px'>
-<?php
-  // Show current and upcoming appointments.
-   $query = "SELECT e.pc_eid, e.pc_aid, e.pc_title, e.pc_eventDate, " .
-    "e.pc_startTime, e.pc_hometext, u.fname, u.lname, u.mname, " .
-    "c.pc_catname " .
-    "FROM openemr_postcalendar_events AS e, users AS u, " .
-    "openemr_postcalendar_categories AS c WHERE " .
-    "e.pc_pid = ? AND e.pc_eventDate >= CURRENT_DATE AND " .
-    "u.id = e.pc_aid AND e.pc_catid = c.pc_catid " .
-    "ORDER BY e.pc_eventDate, e.pc_startTime";
-    //echo $query;
-   $res = sqlStatement($query, array($pid) );
+    <tr>
+        <td width='650px'>
+            <?php
+              // Show current and upcoming appointments.
+               $query1 = "SELECT *
+                         FROM assessments
+                         WHERE patient_id=?";
+              $res1 = sqlStatement($query1, array($pid));
+              while ($row1 = sqlFetchArray($res1)) {
+                  $records1[] = $row1;
+              }
 
-  // appointments expand collapse widget
-  $widgetTitle = "PRO-Patient Reported Outcomes";
-  $widgetLabel = "appointments";
-  $widgetButtonLabel = "Add";
-  $widgetButtonLink = "add_edit_event_user.php?pid=".htmlspecialchars($pid, ENT_QUOTES);
-  $widgetButtonClass = "edit_event iframe";
-  $linkMethod = "";
-  $bodyClass = "summary_item small";
-    if ($GLOBALS['portal_onsite_appt_modify'])
-    {
-      $widgetAuth = true;
-    }
-    else
-    {
-      $widgetAuth = false;
-    }
-  $fixedWidth = false;
-  expand_collapse_widget($widgetTitle, $widgetLabel, $widgetButtonLabel , $widgetButtonLink, $widgetButtonClass, $linkMethod, $bodyClass, $widgetAuth, $fixedWidth);
-       $count = 0;
-?>
-      <div id='stats_div' style="display:none">
-          <div style='margin-left:10px' class='text'><img src='images/ajax-loader.gif'/></div>
-      </div>
-    </td>
-  </tr>
+              // appointments expand collapse widget
+              $widgetTitle = "Patient Reported Outcomes";
+              $widgetLabel = "pro";
+              $widgetButtonLabel = "Add";
+              $widgetButtonLink = "add_edit_event_user.php?pid=".htmlspecialchars($pid, ENT_QUOTES);
+              $widgetButtonClass = "edit_event iframe";
+              $linkMethod = "";
+              $bodyClass = "summary_item small";
+              $widgetAuth = true;
+              $fixedWidth = false;
+              expand_collapse_widget($widgetTitle, $widgetLabel, $widgetButtonLabel , $widgetButtonLink, $widgetButtonClass, $linkMethod, $bodyClass, $widgetAuth, $fixedWidth);
+                   $count = 0;
+              ?>
+        </td>
+    </tr>
    </table>
 
    </div>
