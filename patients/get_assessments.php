@@ -48,7 +48,7 @@ if ( sqlNumRows($res) > 0 ) { ?>
 				echo "<td>".text($row['deadline'])."</td>";
 				echo "<td>".text($row['status'])."</td>";
 				if($row['status']=='ordered'){
-					echo "<td><a href='#' onclick='startAssessment('".text($row['assessment_oid'])."')'>Start Assessment</a></td>";
+					echo "<td><a href='#' onclick='startAssessment(\'".text($row['assessment_oid'])."\')'>Start Assessment</a></td>";
 				}else if($row['status']=='in-progress'){
 					echo "<td>Continue Assessment</td>";
 				}else if($row['status']=='completed'){
