@@ -71,7 +71,7 @@ if ( sqlNumRows($res) > 0 ) { ?>
 
 	function writeResult(score, stdErr, assessmentOID){
 		$.ajax({
-			url: './write_result.php',
+			url: '../interface/reports/write_result.php',
 			data: {'score': score, 'stdErr':stdErr, 'assessmentOID': assessmentOID},
 			type: 'POST'
 		});
