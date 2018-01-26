@@ -44,8 +44,6 @@ $assessmentOID = $_POST['assessmentOID'];
     // echo "<script>console.log( 'Debug Objects: " . $formOID . "' );</script>";
     
 
-    $query = "UPDATE assessments 
-    				  SET status='compelted', score='$score', error='$stdErr'
-    					WHERE patient_id=$pid AND assessment_oid='$assessmentOID'";
+    $query = "UPDATE assessments SET status='completed', score='$score', error='$stdErr' WHERE patient_id='$pid' AND assessment_oid='$assessmentOID'";
     sqlStatement($query);
 ?>
