@@ -70,6 +70,25 @@ global $ignoreAuth;
   <script type="text/javascript" src="<?php echo $GLOBALS['webroot'] ?>/library/js/jquery-1-7-1-min.js"></script>
   <link rel="stylesheet" href="css/base.css" type="text/css"/>
   <link rel="stylesheet" href="css/tables.css" type="text/css"/>
+  <style>
+     padding: 10px;
+        }
+    
+        .panel-bordered{
+            border: 1px solid #c8c8c8;
+            border-color: rgba(0,0,0,0.2);
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .panel-shadow{
+            box-shadow: 0 1px 2px #999;
+        }
+  </style>
   <script type="text/javascript" language="JavaScript">
 
    function refreshme() {
