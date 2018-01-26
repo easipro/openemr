@@ -66,6 +66,8 @@ global $ignoreAuth;
   <script type="text/javascript" src="<?php echo $GLOBALS['assets_static_relative']; ?>/jquery-min-1-3-2/index.js"></script>
   <script type="text/javascript" src="<?php echo $web_root; ?>/library/js/common.js"></script>
   <script type="text/javascript" src="<?php echo $web_root; ?>/library/js/fancybox/jquery.fancybox-1.2.6.js"></script>
+  <script type="text/javascript" src="<?php echo $GLOBALS['webroot'] ?>/library/js/crypto.js"></script>
+  <script type="text/javascript" src="<?php echo $GLOBALS['webroot'] ?>/library/js/jquery-1-7-1-min.js"></script>
   <link rel="stylesheet" href="css/base.css" type="text/css"/>
   <link rel="stylesheet" href="css/tables.css" type="text/css"/>
   <script type="text/javascript" language="JavaScript">
