@@ -164,7 +164,21 @@ global $ignoreAuth;
                     }
             });
         });
-  	  $("#amendments_ps_expand").load("get_amendments.php", { 'embeddedScreen' : true }, function() {
+  	    $("#amendments_ps_expand").load("get_amendments.php", { 'embeddedScreen' : true }, function() {
+            // (note need to place javascript code here also to get the dynamic link to work)
+            $(".medium_modal").fancybox( {
+                    'overlayOpacity' : 0.0,
+                    'showCloseButton' : true,
+                    'frameHeight' : 500,
+                    'frameWidth' : 800,
+                    'centerOnScroll' : false,
+                    'callbackOnClose' : function()  {
+                    refreshme();
+                    }
+            });
+        });
+
+        $("#pro_ps_expand").load("get_assessments.php", { 'embeddedScreen' : true }, function() {
             // (note need to place javascript code here also to get the dynamic link to work)
             $(".medium_modal").fancybox( {
                     'overlayOpacity' : 0.0,
@@ -710,7 +724,7 @@ expand_collapse_widget($widgetTitle, $widgetLabel, $widgetButtonLabel,
               $widgetButtonClass = "edit_event iframe";
               $linkMethod = "";
               $bodyClass = "summary_item small";
-              $widgetAuth = true;
+              $widgetAuth = false;
               $fixedWidth = false;
               expand_collapse_widget($widgetTitle, $widgetLabel, $widgetButtonLabel , $widgetButtonLink, $widgetButtonClass, $linkMethod, $bodyClass, $widgetAuth, $fixedWidth);
                    $count = 0;

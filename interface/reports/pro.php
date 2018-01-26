@@ -144,16 +144,16 @@ require_once "$srcdir/formdata.inc.php";
                 <table width="100%;">
                     <tr class="dm-ed-in-9">
                         <td class="dm-ed-in-6"><label><?php echo xlt('Name'); ?></label></td>
-                        <td class="dm-ed-in-6"><label><?php echo xlt('Deadline'); ?></label></td>
+                        <td class="dm-ed-in-6"><label><?php echo xlt('Deadline (CST)'); ?></label></td>
                         <td class="dm-ed-in-6"><label><?php echo xlt('Status'); ?></label></td>
                         <td class="dm-ed-in-6"><label><?php echo xlt('Score'); ?></label></td>
                     </tr>
                     <?php foreach ($records1 as $value1) { ?>
                         <tr>
                             <td><span class="dm-ed-in-7"><?php echo oeFormatShortDate($value1['form_name']); ?></span></td>
-                            <td><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['deadline (CST)'], ENT_NOQUOTES); ?></span></td>
+                            <td><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['deadline'], ENT_NOQUOTES); ?></span></td>
                             <td><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['status'], ENT_NOQUOTES); ?></span></td>
-                            <td><span class="dm-ed-in-7"><?php echo htmlspecialchars('NA', ENT_NOQUOTES); ?></span></td>
+                            <td><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['score'], ENT_NOQUOTES); ?></span></td>
                         </tr>
                     <?php } ?>
                 </table>   
