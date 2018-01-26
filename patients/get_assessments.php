@@ -32,7 +32,7 @@ if ( sqlNumRows($res) > 0 ) { ?>
 			<th><?php echo xlt('Name'); ?></th>
 			<th><?php echo xlt('Deadline (CST)'); ?></th>
 			<th><?php echo xlt('Status'); ?></th>
-			<th><?php echo xlt('Score'); ?></th>
+			<th><?php echo xlt(''); ?></th>
 		</tr>
 	<?php
   		$even = false;
@@ -43,13 +43,19 @@ if ( sqlNumRows($res) > 0 ) { ?>
   			} else {
   				$class="class1_odd";
   				$even=true;
-			}
-			echo "<tr class='".$class."'>";
-			echo "<td>".text($row['form_name'])."</td>";
-			echo "<td>".text($row['deadline'])."</td>";
-			echo "<td>".text($row['status'])."</td>";
-			echo "<td>".text($row['score'])."</td>";
-			echo "</tr>";
+				}
+				echo "<tr class='".$class."'>";
+				echo "<td>".text($row['form_name'])."</td>";
+				echo "<td>".text($row['deadline'])."</td>";
+				echo "<td>".text($row['status'])."</td>";
+				if($row['status']=='ordered'){
+					echo "<td>Start Assessment</td>";
+				}else if($row['status']=='in-progress'){
+					echo "<td>Continue Assessment</td>";
+				}else if($row['status']=='completed'){
+					echo "<td><i class='fa fa-check-circle-o'></i></td>";
+				}
+				echo "</tr>";
   		}
 		echo "</table>";
   	}
