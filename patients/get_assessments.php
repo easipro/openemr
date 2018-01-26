@@ -104,7 +104,7 @@ if ( sqlNumRows($res) > 0 ) { ?>
 				}else{
 				
 					for(var k=0; k < data.Items[0].Elements[j].Map.length; k++){
-						screen = screen + "<div style=\'height: 50px\' ><input type=\'button\' class='btn-submit' id=\'" + data.Items[0].Elements[j].Map[k].Value + "\' name=\'" + data.Items[0].Elements[j].Map[k].ItemResponseOID + "\' value=\'" + data.Items[0].Elements[j].Map[k].Description +  "\' onclick=selectResponse(this, '"+assessmentOID+"') />"    + "</div>"; 
+						screen = screen + "<div style=\'height: 50px\' ><input type=\'button\' class='btn-submit' id=\'" + data.Items[0].Elements[j].Map[k].Value + "\' name=\'" + data.Items[0].Elements[j].Map[k].ItemResponseOID + "\' value=\'" + data.Items[0].Elements[j].Map[k].Description +  "\' onclick=selectResponse(this,'"+assessmentOID+"') />"    + "</div>"; 
 					}
 				
 				}
