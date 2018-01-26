@@ -153,7 +153,7 @@ require_once "$srcdir/formdata.inc.php";
                             <td><span class="dm-ed-in-7"><?php echo oeFormatShortDate($value1['form_name']); ?></span></td>
                             <td><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['deadline'], ENT_NOQUOTES); ?></span></td>
                             <td><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['status'], ENT_NOQUOTES); ?></span></td>
-                            <td><span class="dm-ed-in-7"><?php echo htmlspecialchars(substr($value1['score'], 0, 5)), ENT_NOQUOTES); ?></span></td>
+                            <td><span class="dm-ed-in-7"><?php echo htmlspecialchars(substr($value1['score'], 0, 5), ENT_NOQUOTES); ?></span></td>
                         </tr>
                     <?php } ?>
                 </table>   
