@@ -110,7 +110,7 @@ global $ignoreAuth;
           user-select: none;
           border: 1px solid #ccc;
           padding: .1rem 0.5rem;
-          font-size: 0.5rem;
+          font-size: 0.9rem;
           border-radius: .25rem;
           -webkit-transition: all .2s ease-in-out;
           -o-transition: all .2s ease-in-out;
