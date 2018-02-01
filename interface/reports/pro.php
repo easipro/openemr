@@ -138,8 +138,7 @@ require_once "$srcdir/formdata.inc.php";
                 <li class="ext-proc"><?php echo xlt('Add New Form'); ?></li>
             </ul>
             <hr>
-        </div>
-        <div class="dm-ed-in-3 dm-ed-in-5 panel-padding panel-bordered">
+        
             <?php
                 $query1 = "SELECT *
                            FROM assessments
