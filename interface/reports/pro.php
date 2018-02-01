@@ -139,6 +139,39 @@ require_once "$srcdir/formdata.inc.php";
                /*height:50px;*/
                border-radius: 4px;
             }
+            .table {
+              width: 100%;
+              max-width: 100%;
+              margin-bottom: 10px;
+              background-color: #fff;
+              th,
+              td {
+                padding: 5px;
+                vertical-align: top;
+                border-top: 1px solid #ccc;
+              }
+
+              thead th {
+                vertical-align: bottom;
+                border-bottom: 2px solid #ccc;
+              }
+
+              tbody + tbody {
+                border-top: 2px solid #ccc;
+              }
+
+              .table {
+                background-color: #fff;
+              }
+            }
+            .table-striped {
+              th{
+
+              } 
+              tbody tr:nth-of-type(odd) {
+                background-color: #999;
+              }
+            }
         </style>
     </head>
     <!-- HTML Body -->
@@ -165,12 +198,12 @@ require_once "$srcdir/formdata.inc.php";
                 }
             ?>
             <?php if (!empty($records1)) { ?>
-                <table width="100%;">
+                <table class='table table-striped'>
                     <tr class="dm-ed-in-9">
-                        <td class="dm-ed-in-6"><label><?php echo xlt('Name'); ?></label></td>
-                        <td class="dm-ed-in-6"><label><?php echo xlt('Deadline (CST)'); ?></label></td>
-                        <td class="dm-ed-in-6"><label><?php echo xlt('Status'); ?></label></td>
-                        <td class="dm-ed-in-6"><label><?php echo xlt('Score'); ?></label></td>
+                        <td ><label><?php echo xlt('Name'); ?></label></td>
+                        <td ><label><?php echo xlt('Deadline (CST)'); ?></label></td>
+                        <td ><label><?php echo xlt('Status'); ?></label></td>
+                        <td ><label><?php echo xlt('Score'); ?></label></td>
                     </tr>
                     <?php foreach ($records1 as $value1) { ?>
                         <tr>
