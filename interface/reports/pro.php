@@ -147,10 +147,8 @@ require_once "$srcdir/formdata.inc.php";
                /*height:50px;*/
                border-radius: 4px;
             }
-            .table-striped {
-              tbody tr:nth-of-type(odd) {
+            .table-striped tbody:nth-child(odd){
                 background-color: #ccc;
-              }
             }
 
         </style>
