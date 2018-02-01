@@ -147,6 +147,12 @@ require_once "$srcdir/formdata.inc.php";
                /*height:50px;*/
                border-radius: 4px;
             }
+            .table-striped {
+              tbody tr:nth-of-type(odd) {
+                background-color: #ccc;
+              }
+            }
+
         </style>
     </head>
     <!-- HTML Body -->
@@ -173,19 +179,19 @@ require_once "$srcdir/formdata.inc.php";
                 }
             ?>
             <?php if (!empty($records1)) { ?>
-                <table width="100%;">
-                    <tr class="dm-ed-in-9">
-                        <td class="dm-ed-in-6 odd"><label><?php echo xlt('Name'); ?></label></td>
-                        <td class="dm-ed-in-6 even"><label><?php echo xlt('Deadline (CST)'); ?></label></td>
-                        <td class="dm-ed-in-6 odd"><label><?php echo xlt('Status'); ?></label></td>
-                        <td class="dm-ed-in-6 even"><label><?php echo xlt('Score'); ?></label></td>
+                <table width="100%;" class='striped'>
+                    <tr class="dm-ed-in-9 odd">
+                        <td class="dm-ed-in-6 "><label><?php echo xlt('Name'); ?></label></td>
+                        <td class="dm-ed-in-6 "><label><?php echo xlt('Deadline (CST)'); ?></label></td>
+                        <td class="dm-ed-in-6 "><label><?php echo xlt('Status'); ?></label></td>
+                        <td class="dm-ed-in-6 "><label><?php echo xlt('Score'); ?></label></td>
                     </tr>
                     <?php foreach ($records1 as $value1) { ?>
                         <tr>
-                            <td class="dm-ed-in-6 odd"><span class="dm-ed-in-7"><?php echo oeFormatShortDate($value1['form_name']); ?></span></td>
-                            <td class="dm-ed-in-6 even"><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['deadline'], ENT_NOQUOTES); ?></span></td>
-                            <td class="dm-ed-in-6 odd "><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['status'], ENT_NOQUOTES); ?></span></td>
-                            <td class="dm-ed-in-6 even"><span class="dm-ed-in-7"><?php echo htmlspecialchars(substr($value1['score'], 0, 4), ENT_NOQUOTES); ?></span></td>
+                            <td class="dm-ed-in-6 "><span class="dm-ed-in-7"><?php echo oeFormatShortDate($value1['form_name']); ?></span></td>
+                            <td class="dm-ed-in-6 "><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['deadline'], ENT_NOQUOTES); ?></span></td>
+                            <td class="dm-ed-in-6  "><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['status'], ENT_NOQUOTES); ?></span></td>
+                            <td class="dm-ed-in-6 "><span class="dm-ed-in-7"><?php echo htmlspecialchars(substr($value1['score'], 0, 4), ENT_NOQUOTES); ?></span></td>
                         </tr>
                     <?php } ?>
                 </table>   
