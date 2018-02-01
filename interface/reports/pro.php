@@ -106,6 +106,10 @@ require_once "$srcdir/formdata.inc.php";
             .dm-ed-in-9 {
                 line-height:30px;
             }
+            ul.ext-tab-head{
+                margin: 0px;
+                padding: 0px;
+            }
             ul.ext-tab-head li {
                 border-bottom: 2px solid #faffff;
                 color: #292b2c;
@@ -159,7 +163,7 @@ require_once "$srcdir/formdata.inc.php";
             <h3><?php echo xlt('Patient Reported Outcomes') ?></h3>
         </div>
         <div class="clear"></div>
-        <div class='panel-padding panel-bordered panel-shadow' style='margin-bottom: 20px;'>
+        <div class='panel-padding panel-bordered panel-shadow' style='margin-bottom: 10px;'>
             <ul class="ext-tab-head">
                 <li class="child-active ext-enc"><?php echo xlt('Existing Forms'); ?></li>
                 <li class="ext-proc"><?php echo xlt('Add New Form'); ?></li>
