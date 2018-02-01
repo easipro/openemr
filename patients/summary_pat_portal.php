@@ -89,6 +89,33 @@ global $ignoreAuth;
         .panel-shadow{
             box-shadow: 0 1px 2px #999;
         }
+
+        .btn{
+          border-bottom: 2px solid #faffff;
+          color: #292b2c;
+          cursor: pointer;
+          display: inline-block;
+          margin-bottom: 0;
+          padding: 3px 5px;
+          text-decoration: none;
+          background-color: #fff;
+          font-weight: 400;
+          line-height: 1.25;
+          text-align: center;
+          white-space: nowrap;
+          vertical-align: middle;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+          border: 1px solid #ccc;
+          padding: .5rem 1rem;
+          font-size: 1rem;
+          border-radius: .25rem;
+          -webkit-transition: all .2s ease-in-out;
+          -o-transition: all .2s ease-in-out;
+          transition: all .2s ease-in-out;
+        }
   </style>
   <script type="text/javascript" language="JavaScript">
 
