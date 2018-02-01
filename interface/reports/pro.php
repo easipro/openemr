@@ -175,10 +175,10 @@ require_once "$srcdir/formdata.inc.php";
                     </tr>
                     <?php foreach ($records1 as $value1) { ?>
                         <tr>
-                            <td><span class="dm-ed-in-7"><?php echo oeFormatShortDate($value1['form_name']); ?></span></td>
-                            <td><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['deadline'], ENT_NOQUOTES); ?></span></td>
-                            <td><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['status'], ENT_NOQUOTES); ?></span></td>
-                            <td><span class="dm-ed-in-7"><?php echo htmlspecialchars(substr($value1['score'], 0, 4), ENT_NOQUOTES); ?></span></td>
+                            <td class="dm-ed-in-6"><span class="dm-ed-in-7"><?php echo oeFormatShortDate($value1['form_name']); ?></span></td>
+                            <td class="dm-ed-in-6"><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['deadline'], ENT_NOQUOTES); ?></span></td>
+                            <td class="dm-ed-in-6"><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['status'], ENT_NOQUOTES); ?></span></td>
+                            <td class="dm-ed-in-6"><span class="dm-ed-in-7"><?php echo htmlspecialchars(substr($value1['score'], 0, 4), ENT_NOQUOTES); ?></span></td>
                         </tr>
                     <?php } ?>
                 </table>   
