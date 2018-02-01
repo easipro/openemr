@@ -110,6 +110,7 @@ require_once "$srcdir/formdata.inc.php";
                 background-color: #f6f6f6;
                 color: #222;
                 border-radius: 6px;
+                border: 1px solid #222;
             }
             ul.ext-tab-head li.child-active {
                 border-bottom: 2px solid #003366;
