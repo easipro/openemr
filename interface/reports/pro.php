@@ -52,7 +52,7 @@ require_once "$srcdir/formdata.inc.php";
                 padding: 5px 0; z-index: 100;
             }
             .dm-ed-in-1 h3 {
-                color: rgb(8, 102, 198);
+                /*color: rgb(8, 102, 198);*/
                 font-size: 20px; float: left;
                 line-height: 0px;
             }
@@ -121,7 +121,7 @@ require_once "$srcdir/formdata.inc.php";
                color: #ffffff; 
                font-size:2em; 
                background: linear-gradient(to right, #0c83e2, #ffffff);
-               height:50px;
+               /*height:50px;*/
                border-radius: 2px;
             }
         </style>
@@ -132,7 +132,7 @@ require_once "$srcdir/formdata.inc.php";
             <h3><?php echo xlt('Patient Reported Outcomes') ?></h3>
         </div>
         <div class="clear"></div>
-        <div>
+        <div class='panel-padding panel-bordered panel-shadow'>
             <ul class="ext-tab-head">
                 <li class="child-active ext-enc"><?php echo xlt('Existing Forms'); ?></li>
                 <li class="ext-proc"><?php echo xlt('Add New Form'); ?></li>
