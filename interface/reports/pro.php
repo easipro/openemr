@@ -115,11 +115,20 @@ require_once "$srcdir/formdata.inc.php";
                 background-color: #007fff;
                 color: #ffffff;
             }
+            .page-title{
+                position:relative;
+               padding-left:10px;
+               color: #ffffff; 
+               font-size:2em; 
+               background: linear-gradient(to right, #0c83e2, #ffffff);
+               height:50px;
+               border-radius: 2px;
+            }
         </style>
     </head>
     <!-- HTML Body -->
     <body class="body_top">
-        <div class="dm-ed-in-1">
+        <div class="dm-ed-in-1 panel-padding page-title">
             <h3><?php echo xlt('Patient Reported Outcomes') ?></h3>
         </div>
         <div class="clear"></div>
