@@ -199,7 +199,7 @@ require_once "$srcdir/formdata.inc.php";
             ?>
             <?php if (!empty($records1)) { ?>
                 <table class='table table-striped'>
-                    <tr class="dm-ed-in-9">
+                    <tr>
                         <td ><label><?php echo xlt('Name'); ?></label></td>
                         <td ><label><?php echo xlt('Deadline (CST)'); ?></label></td>
                         <td ><label><?php echo xlt('Status'); ?></label></td>
