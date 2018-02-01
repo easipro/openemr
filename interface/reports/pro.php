@@ -199,20 +199,22 @@ require_once "$srcdir/formdata.inc.php";
             ?>
             <?php if (!empty($records1)) { ?>
                 <table class='table table-striped'>
-                    <tr>
-                        <td ><label><?php echo xlt('Name'); ?></label></td>
-                        <td ><label><?php echo xlt('Deadline (CST)'); ?></label></td>
-                        <td ><label><?php echo xlt('Status'); ?></label></td>
-                        <td ><label><?php echo xlt('Score'); ?></label></td>
-                    </tr>
-                    <?php foreach ($records1 as $value1) { ?>
-                        <tr>
-                            <td><span class="dm-ed-in-7"><?php echo oeFormatShortDate($value1['form_name']); ?></span></td>
-                            <td><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['deadline'], ENT_NOQUOTES); ?></span></td>
-                            <td><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['status'], ENT_NOQUOTES); ?></span></td>
-                            <td><span class="dm-ed-in-7"><?php echo htmlspecialchars(substr($value1['score'], 0, 4), ENT_NOQUOTES); ?></span></td>
-                        </tr>
-                    <?php } ?>
+                    <thead>
+                        <th ><label><?php echo xlt('Name'); ?></label></th>
+                        <th ><label><?php echo xlt('Deadline (CST)'); ?></label></th>
+                        <th ><label><?php echo xlt('Status'); ?></label></th>
+                        <th ><label><?php echo xlt('Score'); ?></label></th>
+                    </thead>
+                    <tboday>
+                        <?php foreach ($records1 as $value1) { ?>
+                            <tr>
+                                <td><span class="dm-ed-in-7"><?php echo oeFormatShortDate($value1['form_name']); ?></span></td>
+                                <td><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['deadline'], ENT_NOQUOTES); ?></span></td>
+                                <td><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['status'], ENT_NOQUOTES); ?></span></td>
+                                <td><span class="dm-ed-in-7"><?php echo htmlspecialchars(substr($value1['score'], 0, 4), ENT_NOQUOTES); ?></span></td>
+                            </tr>
+                        <?php } ?>
+                    </tboday>
                 </table>   
             <?php }?>
 
