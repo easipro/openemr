@@ -147,11 +147,8 @@ require_once "$srcdir/formdata.inc.php";
                /*height:50px;*/
                border-radius: 4px;
             }
-            .table-striped tbody:nth-child(odd){
-                background-color: #ccc;
-            }
-            .table-striped tbody:nth-child(even){
-                background-color: #fff;
+            tr:nth-child(even) {
+                background-color: #f2f2f2;
             }
 
         </style>
