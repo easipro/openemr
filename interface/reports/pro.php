@@ -108,13 +108,14 @@ require_once "$srcdir/formdata.inc.php";
                 padding: 3px 5px;
                 text-decoration: none;
                 background-color: #f6f6f6;
-                color: #333333;
+                color: #222;
+                border-radius: 6px;
             }
             ul.ext-tab-head li.child-active {
                 border-bottom: 2px solid #003366;
                 background-color: #007fff;
                 color: #ffffff;
-                border-radius: 10px;
+                border-radius: 6px;
             }
             .page-title{
                 position:relative;
@@ -123,7 +124,7 @@ require_once "$srcdir/formdata.inc.php";
                font-size:2em; 
                background: linear-gradient(to right, #0c83e2, #ffffff);
                /*height:50px;*/
-               border-radius: 5px;
+               border-radius: 4px;
             }
         </style>
     </head>
