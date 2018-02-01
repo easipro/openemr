@@ -53,7 +53,7 @@ require_once "$srcdir/formdata.inc.php";
             }
             .dm-ed-in-1 h3 {
                 /*color: rgb(8, 102, 198);*/
-                font-size: 15px; float: left;
+                font-size: 20px; float: left;
                 line-height: 0px;
             }
             .panel-padding{
