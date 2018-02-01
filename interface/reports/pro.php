@@ -150,6 +150,9 @@ require_once "$srcdir/formdata.inc.php";
             .table-striped tbody:nth-child(odd){
                 background-color: #ccc;
             }
+            .table-striped tbody:nth-child(even){
+                background-color: #fff;
+            }
 
         </style>
     </head>
