@@ -46,7 +46,7 @@ if ( sqlNumRows($res) > 0 ) { ?>
 				echo "<tr class='".$class."'>";
 				echo "<td>".text($row['form_name'])."</td>";
 				echo "<td>".text($row['deadline'])."</td>";
-				echo "<td>".text($row['status'])."</td>";
+				echo "<td id='status_".$row['assessment_oid']."'>".text($row['status'])."</td>";
 				if($row['status']=='ordered'){
 					echo "<td id='asst_" . text($row['assessment_oid']) . "'><a class='btn' href='#' onclick=\"startAssessment('" . text($row['assessment_oid']) . "')\">Start Assessment</a></td>";
 				}else if($row['status']=='in-progress'){
@@ -100,6 +100,7 @@ if ( sqlNumRows($res) > 0 ) { ?>
 		if(data.DateFinished !=''){
 			document.getElementById("Content").innerHTML = "You have finished the assessment.<br /> Thank you";
 			document.getElementById("asst_"+assessmentOID).innerHTML = "<i class='fa fa-check-circle'></i>";
+			document.getElementById("status_"+assessmentOID).innerHTML = "completed";
 			$.ajax({
 				url: Server + "/2014-01/Results/" + assessmentOID + ".json",
 				cache: false,
