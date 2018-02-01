@@ -80,6 +80,7 @@ require_once "$srcdir/formdata.inc.php";
             
             .dm-ed-in-6 {
                 width: 20% !important;
+                border-top: 1px solid #ccc;
             }
             .dm-ed-in-7 {
                 font-size: 12px;
@@ -139,39 +140,6 @@ require_once "$srcdir/formdata.inc.php";
                /*height:50px;*/
                border-radius: 4px;
             }
-            .table {
-              width: 100%;
-              max-width: 100%;
-              margin-bottom: 10px;
-              background-color: #fff;
-              th,
-              td {
-                padding: 5px;
-                vertical-align: top;
-                border-top: 1px solid #ccc;
-              }
-
-              thead th {
-                vertical-align: bottom;
-                border-bottom: 2px solid #ccc;
-              }
-
-              tbody + tbody {
-                border-top: 2px solid #ccc;
-              }
-
-              .table {
-                background-color: #fff;
-              }
-            }
-            .table-striped {
-              th{
-
-              } 
-              tbody tr:nth-of-type(odd) {
-                background-color: #999;
-              }
-            }
         </style>
     </head>
     <!-- HTML Body -->
@@ -198,23 +166,21 @@ require_once "$srcdir/formdata.inc.php";
                 }
             ?>
             <?php if (!empty($records1)) { ?>
-                <table class='table table-striped'>
-                    <thead>
-                        <th ><label><?php echo xlt('Name'); ?></label></th>
-                        <th ><label><?php echo xlt('Deadline (CST)'); ?></label></th>
-                        <th ><label><?php echo xlt('Status'); ?></label></th>
-                        <th ><label><?php echo xlt('Score'); ?></label></th>
-                    </thead>
-                    <tboday>
-                        <?php foreach ($records1 as $value1) { ?>
-                            <tr>
-                                <td><span class="dm-ed-in-7"><?php echo oeFormatShortDate($value1['form_name']); ?></span></td>
-                                <td><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['deadline'], ENT_NOQUOTES); ?></span></td>
-                                <td><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['status'], ENT_NOQUOTES); ?></span></td>
-                                <td><span class="dm-ed-in-7"><?php echo htmlspecialchars(substr($value1['score'], 0, 4), ENT_NOQUOTES); ?></span></td>
-                            </tr>
-                        <?php } ?>
-                    </tboday>
+                <table width="100%;">
+                    <tr class="dm-ed-in-9">
+                        <td class="dm-ed-in-6"><label><?php echo xlt('Name'); ?></label></td>
+                        <td class="dm-ed-in-6"><label><?php echo xlt('Deadline (CST)'); ?></label></td>
+                        <td class="dm-ed-in-6"><label><?php echo xlt('Status'); ?></label></td>
+                        <td class="dm-ed-in-6"><label><?php echo xlt('Score'); ?></label></td>
+                    </tr>
+                    <?php foreach ($records1 as $value1) { ?>
+                        <tr>
+                            <td><span class="dm-ed-in-7"><?php echo oeFormatShortDate($value1['form_name']); ?></span></td>
+                            <td><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['deadline'], ENT_NOQUOTES); ?></span></td>
+                            <td><span class="dm-ed-in-7"><?php echo htmlspecialchars($value1['status'], ENT_NOQUOTES); ?></span></td>
+                            <td><span class="dm-ed-in-7"><?php echo htmlspecialchars(substr($value1['score'], 0, 4), ENT_NOQUOTES); ?></span></td>
+                        </tr>
+                    <?php } ?>
                 </table>   
             <?php }?>
 
