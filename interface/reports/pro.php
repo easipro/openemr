@@ -179,8 +179,8 @@ require_once "$srcdir/formdata.inc.php";
                 }
             ?>
             <?php if (!empty($records1)) { ?>
-                <table width="100%;" class='striped'>
-                    <tr class="dm-ed-in-9 odd">
+                <table width="100%;" class='table-striped'>
+                    <tr class="dm-ed-in-9">
                         <td class="dm-ed-in-6 "><label><?php echo xlt('Name'); ?></label></td>
                         <td class="dm-ed-in-6 "><label><?php echo xlt('Deadline (CST)'); ?></label></td>
                         <td class="dm-ed-in-6 "><label><?php echo xlt('Status'); ?></label></td>
