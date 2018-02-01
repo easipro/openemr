@@ -103,13 +103,26 @@ require_once "$srcdir/formdata.inc.php";
                 color: #292b2c;
                 cursor: pointer;
                 display: inline-block;
-                font-size: 14px;
                 margin-bottom: 0;
                 padding: 3px 5px;
                 text-decoration: none;
                 background-color: #fff;
-                border-radius: 6px;
+                font-weight: 400;
+                line-height: 1.25;
+                text-align: center;
+                white-space: nowrap;
+                vertical-align: middle;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
                 border: 1px solid #ccc;
+                padding: .5rem 1rem;
+                font-size: 1rem;
+                border-radius: .25rem;
+                -webkit-transition: all .2s ease-in-out;
+                -o-transition: all .2s ease-in-out;
+                transition: all .2s ease-in-out;
             }
             ul.ext-tab-head li.child-active {
                 border-bottom: 2px solid #003366;
