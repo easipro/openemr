@@ -100,17 +100,16 @@ require_once "$srcdir/formdata.inc.php";
             }
             ul.ext-tab-head li {
                 border-bottom: 2px solid #faffff;
-                color: #222222;
+                color: #292b2c;
                 cursor: pointer;
                 display: inline-block;
                 font-size: 14px;
                 margin-bottom: 0;
                 padding: 3px 5px;
                 text-decoration: none;
-                background-color: #f6f6f6;
-                color: #222;
+                background-color: #fff;
                 border-radius: 6px;
-                border: 1px solid #222;
+                border: 1px solid #ccc;
             }
             ul.ext-tab-head li.child-active {
                 border-bottom: 2px solid #003366;
