@@ -53,7 +53,7 @@ require_once "$srcdir/formdata.inc.php";
             }
             .dm-ed-in-1 h3 {
                 /*color: rgb(8, 102, 198);*/
-                font-size: 20px; float: left;
+                font-size: 15px; float: left;
                 line-height: 0px;
             }
             .panel-padding{
@@ -159,7 +159,7 @@ require_once "$srcdir/formdata.inc.php";
     </head>
     <!-- HTML Body -->
     <body class="body_top">
-        <div class="dm-ed-in-1 panel-padding page-title">
+        <div class="dm-ed-in-1 panel-padding page-title" style="margin-top:0px; margin-bottom: 2px;">
             <h3><?php echo xlt('Patient Reported Outcomes') ?></h3>
         </div>
         <div class="clear"></div>
@@ -249,7 +249,7 @@ require_once "$srcdir/formdata.inc.php";
                     success: function(data) { 
                         $('#form-list').html("");
                         var forms = data.Form;
-                        var list = "<ul style='list-style:none;'>"
+                        var list = "<ul style='list-style:none;margin:0px;padding:0px;'>"
                         for (var i=0; i < forms.length; i++) {
                             var myform = "<li><input type='checkbox' value='"+forms[i].OID+"' desc='"+ forms[i].Name +"'>"+forms[i].Name+"</input></li>";
                             list += myform;
