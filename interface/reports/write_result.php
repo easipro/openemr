@@ -47,6 +47,3 @@ $assessmentOID = $_POST['assessmentOID'];
     $query = "UPDATE assessments SET status='completed', score='$score', error='$stdErr' WHERE patient_id='$pid' AND assessment_oid='$assessmentOID'";
     sqlStatement($query);
 ?>
-<script>
-	alert('jere');
-</script>
