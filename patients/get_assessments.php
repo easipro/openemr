@@ -73,7 +73,11 @@ if ( sqlNumRows($res) > 0 ) { ?>
 		$.ajax({
 			url: '../interface/reports/write_result.php',
 			data: {'score': score, 'stdErr':stdErr, 'assessmentOID': assessmentOID},
-			type: 'POST'
+			type: 'POST',
+			dataType: 'script',
+			success: function(data){
+      	alert('data written');
+      }
 		});
 	}
   
@@ -113,10 +117,7 @@ if ( sqlNumRows($res) > 0 ) { ?>
 		      xhr.setRequestHeader("Authorization", "Basic " + base64);
 	      },
 	      success: function(data){
-	      	alert(data.Items[0].Theta);
-	      	alert(data.Items[0].StdError);
-	      	// score, error, assessmentOID
-					//writeResult(data.Items[0].Theta, data.Items[0].StdError, assessmentOID);
+	      	writeResult(data.Items[0].Theta, data.Items[0].StdError, assessmentOID);
 	      }
 			});
 			return
