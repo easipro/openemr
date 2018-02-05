@@ -73,8 +73,8 @@ if ( sqlNumRows($res) > 0 ) { ?>
 		$.ajax({
 			url: '../interface/reports/write_result.php',
 			data: {'score': score, 'stdErr':stdErr, 'assessmentOID': assessmentOID},
-			// type: 'POST',
-			// dataType: 'script',
+			type: 'POST',
+			dataType: 'script'
 			// success: function(data){
    //    	alert('data written');
    //    }
