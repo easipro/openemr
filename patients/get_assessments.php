@@ -113,8 +113,10 @@ if ( sqlNumRows($res) > 0 ) { ?>
 		      xhr.setRequestHeader("Authorization", "Basic " + base64);
 	      },
 	      success: function(data){
+	      	alert(data.Items[0].Theta);
+	      	alert(data.Items[0].StdError);
 	      	// score, error, assessmentOID
-					writeResult(data.Items[0].Theta, data.Items[0].StdError, assessmentOID);
+					//writeResult(data.Items[0].Theta, data.Items[0].StdError, assessmentOID);
 	      }
 			});
 			return
