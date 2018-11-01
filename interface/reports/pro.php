@@ -321,15 +321,15 @@ require_once "$srcdir/formdata.inc.php";
                         
 
                         // ascq
-                        var ascq_me_container = "<div onclick='openCloseList(this)' style='cursor:pointer;'><div class='list-title-close'><b>ASCQ-Me</b></div></div>"
-                        var alist = "<ul style='list-style:none;margin:0px;padding:0px;display:none'>"
-                        for (var i=0; i < ascq_me_forms.length; i++) {
-                            var myform = "<li><input type='checkbox' value='"+forms[i].OID+"' desc='"+ forms[i].Name +"'>"+forms[i].Name+"</input></li>";
-                            alist += myform;
-                        }
-                        alist += "</ul>"
-                        $('#form-list').append(ascq_me_container);
-                        $('#form-list').append(alist);
+                        // var ascq_me_container = "<div onclick='openCloseList(this)' style='cursor:pointer;'><div class='list-title-close'><b>ASCQ-Me</b></div></div>"
+                        // var alist = "<ul style='list-style:none;margin:0px;padding:0px;display:none'>"
+                        // for (var i=0; i < ascq_me_forms.length; i++) {
+                        //     var myform = "<li><input type='checkbox' value='"+forms[i].OID+"' desc='"+ forms[i].Name +"'>"+forms[i].Name+"</input></li>";
+                        //     alist += myform;
+                        // }
+                        // alist += "</ul>"
+                        // $('#form-list').append(ascq_me_container);
+                        // $('#form-list').append(alist);
                         // neuro_qol
                         var neuro_qol_container = "<div onclick='openCloseList(this)' style='cursor:pointer;'><div class='list-title-close'><b>Neuro-QOL</b></div></div>"
                         var blist = "<ul style='list-style:none;margin:0px;padding:0px;display:none'>"
