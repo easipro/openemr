@@ -339,6 +339,49 @@ require_once "$srcdir/formdata.inc.php";
                         list += "</ul>"
                         $('#form-list').append(nih_tb_container);
                         $('#form-list').append(list);
+                        //prmois
+                        var promis_container = "<div onclick='openCloseList(this)' style='cursor:pointer;'><div class='list-title-close'><b>PROMIS</b></div></div>"
+                        var list = "<ul style='list-style:none;margin:0px;padding:0px;display:none'>"
+                        for (var i=0; i < promis_forms.length; i++) {
+                            var myform = "<li><input type='checkbox' value='"+forms[i].OID+"' desc='"+ forms[i].Name +"'>"+forms[i].Name+"</input></li>";
+                            list += myform;
+                        }
+                        list += "</ul>"
+                        $('#form-list').append(promis_container);
+                        $('#form-list').append(list);
+
+                        // sci-fi
+                        var sci_fi_container = "<div onclick='openCloseList(this)' style='cursor:pointer;'><div class='list-title-close'><b>SCI-FI</b></div></div>"
+                        var list = "<ul style='list-style:none;margin:0px;padding:0px;display:none'>"
+                        for (var i=0; i < sci_fi_forms.length; i++) {
+                            var myform = "<li><input type='checkbox' value='"+forms[i].OID+"' desc='"+ forms[i].Name +"'>"+forms[i].Name+"</input></li>";
+                            list += myform;
+                        }
+                        list += "</ul>"
+                        $('#form-list').append(sci_fi_container);
+                        $('#form-list').append(list);
+
+                        // sci-qol
+                        var sci_qol_container = "<div onclick='openCloseList(this)' style='cursor:pointer;'><div class='list-title-close'><b>SCI-QOL</b></div></div>"
+                        var list = "<ul style='list-style:none;margin:0px;padding:0px;display:none'>"
+                        for (var i=0; i < sci_qol_forms.length; i++) {
+                            var myform = "<li><input type='checkbox' value='"+forms[i].OID+"' desc='"+ forms[i].Name +"'>"+forms[i].Name+"</input></li>";
+                            list += myform;
+                        }
+                        list += "</ul>"
+                        $('#form-list').append(sci_qol_container);
+                        $('#form-list').append(list);
+                        // 
+                        // tbi-qol
+                        var tbi_qol_container = "<div onclick='openCloseList(this)' style='cursor:pointer;'><div class='list-title-close'><b>TBI-QOL</b></div></div>"
+                        var list = "<ul style='list-style:none;margin:0px;padding:0px;display:none'>"
+                        for (var i=0; i < tbi_qol_forms.length; i++) {
+                            var myform = "<li><input type='checkbox' value='"+forms[i].OID+"' desc='"+ forms[i].Name +"'>"+forms[i].Name+"</input></li>";
+                            list += myform;
+                        }
+                        list += "</ul>"
+                        $('#form-list').append(tbi_qol_container);
+                        $('#form-list').append(list);
                     },
                 
                     error: function(jqXHR, textStatus, errorThrown) {
