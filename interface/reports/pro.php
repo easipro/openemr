@@ -273,7 +273,7 @@ require_once "$srcdir/formdata.inc.php";
                                 tbi_qol_forms.push(forms[i])
                             }
                         }
-                        var ascq_me_container = "<div onclick='$(this).next().toggle();' style='cursor:pointer;'><span><b>ASCQ-ME</b></span></div>"
+                        var ascq_me_container = "<div onclick='$(this).next().toggle();' style='cursor:pointer;'><img src='images/right-caret.png'></img><span><b>ASCQ-ME</b></span></div>"
                         var list = "<ul style='list-style:none;margin:0px;padding:0px;display:none'>"
                         for (var i=0; i < ascq_me_forms.length; i++) {
                             var myform = "<li><input type='checkbox' value='"+forms[i].OID+"' desc='"+ forms[i].Name +"'>"+forms[i].Name+"</input></li>";
