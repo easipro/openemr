@@ -49,10 +49,9 @@ $status = $_POST['status'];
               VALUES('$formOID', '$formName', 1, '$expiration', '$pid', '$assessmentOID', '$status')";
     sqlStatement($query);
 
-		
 		$to = "strongtsq@gmail.com";
     $subject = "New measurement ready for you";
-    $email_body = "Dr. Admin had ordered a measurement for you: " . $formName . ".";
+    $email_body = "Dr. Admin had ordered a measurement for you.";
 		
     mail($to, $subject, $email_body);
 
