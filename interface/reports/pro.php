@@ -45,6 +45,7 @@ require_once "$srcdir/formdata.inc.php";
         <link rel='stylesheet' href='<?php echo $css_header ?>' type='text/css'>
         <style>
             .list-title-close, .list-title-open{
+                position: relative;
                 padding-left:20px;
             }
             .list-title-close:after{
