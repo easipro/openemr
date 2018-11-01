@@ -312,7 +312,7 @@ require_once "$srcdir/formdata.inc.php";
                         }
 
                         // ascq
-                        var ascq_me_container = "<div onclick='openCloseList(this)' style='cursor:pointer;'><div class='list-title-close'><b>ASCQ-Me</b></div></div>"
+                        var ascq_me_container = "<div onclick='openCloseList(this)' style='cursor:pointer;'><div class='list-title-close'><b>ASCQ-Me ("+ascq_me_forms.length+")</b></div></div>"
                         var alist = "<ul style='list-style:none;margin:0px;padding:0px;display:none'>"
                         for (var i=0; i < ascq_me_forms.length; i++) {
                             var myform = "<li><input type='checkbox' value='"+ascq_me_forms[i].OID+"' desc='"+ ascq_me_forms[i].Name +"'>"+ascq_me_forms[i].Name+"</input></li>";
@@ -322,7 +322,7 @@ require_once "$srcdir/formdata.inc.php";
                         $('#form-list').append(ascq_me_container);
                         $('#form-list').append(alist);
                         // neuro_qol
-                        var neuro_qol_container = "<div onclick='openCloseList(this)' style='cursor:pointer;'><div class='list-title-close'><b>Neuro-QOL</b></div></div>"
+                        var neuro_qol_container = "<div onclick='openCloseList(this)' style='cursor:pointer;'><div class='list-title-close'><b>Neuro-QOL ("+neuro_qol_forms.length+")</b></div></div>"
                         var blist = "<ul style='list-style:none;margin:0px;padding:0px;display:none'>"
                         for (var i=0; i < neuro_qol_forms.length; i++) {
                             var myform = "<li><input type='checkbox' value='"+neuro_qol_forms[i].OID+"' desc='"+ neuro_qol_forms[i].Name +"'>"+neuro_qol_forms[i].Name+"</input></li>";
@@ -332,7 +332,7 @@ require_once "$srcdir/formdata.inc.php";
                         $('#form-list').append(neuro_qol_container);
                         $('#form-list').append(blist);
                         // nih tb
-                        var nih_tb_container = "<div onclick='openCloseList(this)' style='cursor:pointer;'><div class='list-title-close'><b>NIH TB</b></div></div>"
+                        var nih_tb_container = "<div onclick='openCloseList(this)' style='cursor:pointer;'><div class='list-title-close'><b>NIH TB ("+nih_tb_forms.length+")</b></div></div>"
                         var list = "<ul style='list-style:none;margin:0px;padding:0px;display:none'>"
                         for (var i=0; i < nih_tb_forms.length; i++) {
                             var myform = "<li><input type='checkbox' value='"+nih_tb_forms[i].OID+"' desc='"+ nih_tb_forms[i].Name +"'>"+nih_tb_forms[i].Name+"</input></li>";
@@ -342,7 +342,7 @@ require_once "$srcdir/formdata.inc.php";
                         $('#form-list').append(nih_tb_container);
                         $('#form-list').append(list);
                         //prmois
-                        var promis_container = "<div onclick='openCloseList(this)' style='cursor:pointer;'><div class='list-title-close'><b>PROMIS</b></div></div>"
+                        var promis_container = "<div onclick='openCloseList(this)' style='cursor:pointer;'><div class='list-title-close'><b>PROMIS ("+promis_forms.length+")</b></div></div>"
                         var list = "<ul style='list-style:none;margin:0px;padding:0px;display:none'>"
                         for (var i=0; i < promis_forms.length; i++) {
                             var myform = "<li><input type='checkbox' value='"+promis_forms[i].OID+"' desc='"+ promis_forms[i].Name +"'>"+promis_forms[i].Name+"</input></li>";
@@ -353,7 +353,7 @@ require_once "$srcdir/formdata.inc.php";
                         $('#form-list').append(list);
 
                         // sci-fi
-                        var sci_fi_container = "<div onclick='openCloseList(this)' style='cursor:pointer;'><div class='list-title-close'><b>SCI-FI</b></div></div>"
+                        var sci_fi_container = "<div onclick='openCloseList(this)' style='cursor:pointer;'><div class='list-title-close'><b>SCI-FI ("+sci_fi_forms.length+")</b></div></div>"
                         var list = "<ul style='list-style:none;margin:0px;padding:0px;display:none'>"
                         for (var i=0; i < sci_fi_forms.length; i++) {
                             var myform = "<li><input type='checkbox' value='"+sci_fi_forms[i].OID+"' desc='"+ sci_fi_forms[i].Name +"'>"+sci_fi_forms[i].Name+"</input></li>";
@@ -364,7 +364,7 @@ require_once "$srcdir/formdata.inc.php";
                         $('#form-list').append(list);
 
                         // sci-qol
-                        var sci_qol_container = "<div onclick='openCloseList(this)' style='cursor:pointer;'><div class='list-title-close'><b>SCI-QOL</b></div></div>"
+                        var sci_qol_container = "<div onclick='openCloseList(this)' style='cursor:pointer;'><div class='list-title-close'><b>SCI-QOL ("+sci_qol_forms.length+")</b></div></div>"
                         var list = "<ul style='list-style:none;margin:0px;padding:0px;display:none'>"
                         for (var i=0; i < sci_qol_forms.length; i++) {
                             var myform = "<li><input type='checkbox' value='"+sci_qol_forms[i].OID+"' desc='"+ sci_qol_forms[i].Name +"'>"+sci_qol_forms[i].Name+"</input></li>";
@@ -375,7 +375,7 @@ require_once "$srcdir/formdata.inc.php";
                         $('#form-list').append(list);
                         // 
                         // tbi-qol
-                        var tbi_qol_container = "<div onclick='openCloseList(this)' style='cursor:pointer;'><div class='list-title-close'><b>TBI-QOL</b></div></div>"
+                        var tbi_qol_container = "<div onclick='openCloseList(this)' style='cursor:pointer;'><div class='list-title-close'><b>TBI-QOL ("+tbi_qol_forms.length+")</b></div></div>"
                         var list = "<ul style='list-style:none;margin:0px;padding:0px;display:none'>"
                         for (var i=0; i < tbi_qol_forms.length; i++) {
                             var myform = "<li><input type='checkbox' value='"+tbi_qol_forms[i].OID+"' desc='"+ tbi_qol_forms[i].Name +"'>"+tbi_qol_forms[i].Name+"</input></li>";
