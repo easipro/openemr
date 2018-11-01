@@ -259,17 +259,17 @@ require_once "$srcdir/formdata.inc.php";
                         for (var i=0; i < forms.length; i++) {
                             if(forms[i].Name.startsWith("ASCQ-Me")){
                                 ascq_me_forms.push(forms[i])
-                            }else if(forms[i].Name.startsWith("Neuro-QoL")||forms[i].Name.startWith("Neuro-QOL")){
+                            }else if(forms[i].Name.startsWith("Neuro-QoL")||forms[i].Name.startsWith("Neuro-QOL")){
                                 neuro_qol_forms.push(forms[i])
                             }else if(forms[i].Name.startsWith("NIH TB")){
                                 nih_tb_forms.push(forms[i])
-                            }else if(forms[i].Name.startWith("PROMIS")){
+                            }else if(forms[i].Name.startsWith("PROMIS")){
                                 promis_forms.push(forms[i])
                             }else if(forms[i].Name.startsWith("SCI-FI")){
                                 sci_fi_forms.push(forms[i])
-                            }else if(forms[i].Name.startsWith("SCI-QOL")||forms[i].Name.startWith("SCI-QoL")){
+                            }else if(forms[i].Name.startsWith("SCI-QOL")||forms[i].Name.startsWith("SCI-QoL")){
                                 sci_qol_forms.push(forms[i])
-                            }else if(forms[i].Name.startsWith("TBI-QOL")||forms[i].Name.startWith("TBI-QoL")){
+                            }else if(forms[i].Name.startsWith("TBI-QOL")||forms[i].Name.startsWith("TBI-QoL")){
                                 tbi_qol_forms.push(forms[i])
                             }
                         }
