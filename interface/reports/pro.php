@@ -46,7 +46,7 @@ require_once "$srcdir/formdata.inc.php";
         <style>
             .list-title-close, .list-title-open{
                 position: relative;
-                padding-left:20px;
+                padding:5px;
                 min-width:500px;
                 background-color: #cceeff;
             }
@@ -55,7 +55,7 @@ require_once "$srcdir/formdata.inc.php";
                 display: block;
                 content: " ";
                 left: 0;
-                bottom: 0;
+                bottom: 5px;
                 width: 0;
                 height: 0;
                 border-color: transparent;
@@ -69,12 +69,13 @@ require_once "$srcdir/formdata.inc.php";
             .list-title-open:after{
                 display: block;
                 content: " ";
-                float: left;
+                left: 0;
+                bottom: 5px;
                 width: 0;
                 height: 0;
                 border-color: transparent;
                 border-style: solid;
-                border-width: 5px 0 5px 5px;
+                border-width: 5px 5px 5px 0;
                 border-left-color: #000;
                 margin-top: 5px;
                 margin-right: -10px;
@@ -327,6 +328,10 @@ require_once "$srcdir/formdata.inc.php";
 
             function openCloseList(ele){
                 $(ele).next().toggle();
+                if($(ele).hasClass('list-title-close')){
+                    $(ele).removeClass('list-title-close');
+                    $(ele).addClass('list-title-open');
+                }
             }
 
             function orderForm(){
