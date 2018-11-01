@@ -293,6 +293,8 @@ require_once "$srcdir/formdata.inc.php";
                         var sci_qol_forms = [];
                         var tbi_qol_forms = [];
                         for (var i=0; i < forms.length; i++) {
+                            alert(forms[i].Name)
+                            
                             if(forms[i].Name.startsWith("ASCQ-Me")){
                                 ascq_me_forms.push(forms[i])
                             }
