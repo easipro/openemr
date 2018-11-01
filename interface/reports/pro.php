@@ -44,6 +44,19 @@ require_once "$srcdir/formdata.inc.php";
         <script type="text/javascript" src="<?php echo $GLOBALS['webroot'] ?>/library/js/jquery-1-7-1-min.js"></script>
         <link rel='stylesheet' href='<?php echo $css_header ?>' type='text/css'>
         <style>
+            .list-title:after{
+                display: block;
+                content: " ";
+                float: left;
+                width: 0;
+                height: 0;
+                border-color: transparent;
+                border-style: solid;
+                border-width: 5px 0 5px 5px;
+                border-left-color: #ccc;
+                margin-top: 5px;
+                margin-right: -10px;
+            }
             .dm-ed-in-1 {
                 height: 35px;
                 width: 100%;
@@ -273,7 +286,7 @@ require_once "$srcdir/formdata.inc.php";
                                 tbi_qol_forms.push(forms[i])
                             }
                         }
-                        var ascq_me_container = "<div onclick='$(this).next().toggle();' style='cursor:pointer;'><img src='/images/right-caret.png'></img><span><b>ASCQ-ME</b></span></div>"
+                        var ascq_me_container = "<div onclick='$(this).next().toggle();' style='cursor:pointer;'><div class='list-title'><b>ASCQ-ME</b></div></div>"
                         var list = "<ul style='list-style:none;margin:0px;padding:0px;display:none'>"
                         for (var i=0; i < ascq_me_forms.length; i++) {
                             var myform = "<li><input type='checkbox' value='"+forms[i].OID+"' desc='"+ forms[i].Name +"'>"+forms[i].Name+"</input></li>";
