@@ -48,9 +48,11 @@ require_once "$srcdir/formdata.inc.php";
                 padding-left:20px;
             }
             .list-title-close:after{
+                position: absolute;
                 display: block;
                 content: " ";
-                float: left;
+                left: 0;
+                bottom: 0;
                 width: 0;
                 height: 0;
                 border-color: transparent;
