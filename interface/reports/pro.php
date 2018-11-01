@@ -328,9 +328,12 @@ require_once "$srcdir/formdata.inc.php";
 
             function openCloseList(ele){
                 $(ele).next().toggle();
-                if($(ele).hasClass('list-title-close')){
-                    $(ele).removeClass('list-title-close');
-                    $(ele).addClass('list-title-open');
+                if($(ele).next().hasClass('list-title-close')){
+                    $(ele).next().removeClass('list-title-close');
+                    $(ele).next().addClass('list-title-open');
+                }else{
+                    $(ele).next().removeClass('list-title-open');
+                    $(ele).next().addClass('list-title-close');
                 }
             }
 
