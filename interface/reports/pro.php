@@ -293,56 +293,43 @@ require_once "$srcdir/formdata.inc.php";
                         var sci_qol_forms = [];
                         var tbi_qol_forms = [];
                         for (var i=0; i < forms.length; i++) {
-                            alert(forms[i].Name)
-                            
                             if(forms[i].Name.startsWith("ASCQ-Me")){
                                 ascq_me_forms.push(forms[i])
-                            }
-                            if(forms[i].Name.startsWith("Neuro-QoL")||forms[i].Name.startsWith("Neuro-QOL")){
+                            }else if(forms[i].Name.startsWith("Neuro-QoL")||forms[i].Name.startsWith("Neuro-QOL")){
                                 neuro_qol_forms.push(forms[i])
-                            }
-                            if(forms[i].Name.startsWith("NIH TB")){
+                            }else if(forms[i].Name.startsWith("NIH TB")){
                                 nih_tb_forms.push(forms[i])
-                            }
-
-                            if(forms[i].Name.startsWith("PROMIS")){
+                            }else if(forms[i].Name.startsWith("PROMIS")){
                                 promis_forms.push(forms[i])
-                            }
-
-                            if(forms[i].Name.startsWith("SCI-FI")){
+                            }else if(forms[i].Name.startsWith("SCI-FI")){
                                 sci_fi_forms.push(forms[i])
-                            }
-
-                            if(forms[i].Name.startsWith("SCI-QOL")||forms[i].Name.startsWith("SCI-QoL")){
+                            }else if(forms[i].Name.startsWith("SCI-QOL")||forms[i].Name.startsWith("SCI-QoL")){
                                 sci_qol_forms.push(forms[i])
-                            }
-
-                            if(forms[i].Name.startsWith("TBI-QOL")||forms[i].Name.startsWith("TBI-QoL")){
+                            }else if(forms[i].Name.startsWith("TBI-QOL")||forms[i].Name.startsWith("TBI-QoL")){
                                 tbi_qol_forms.push(forms[i])
                             }
                         }
 
-                        // alert(neuro_qol_forms.join(","));
                         // ascq
                         var ascq_me_container = "<div onclick='openCloseList(this)' style='cursor:pointer;'><div class='list-title-close'><b>ASCQ-Me</b></div></div>"
-                        var list = "<ul style='list-style:none;margin:0px;padding:0px;display:none'>"
+                        var alist = "<ul style='list-style:none;margin:0px;padding:0px;display:none'>"
                         for (var i=0; i < ascq_me_forms.length; i++) {
                             var myform = "<li><input type='checkbox' value='"+forms[i].OID+"' desc='"+ forms[i].Name +"'>"+forms[i].Name+"</input></li>";
-                            list += myform;
+                            alist += myform;
                         }
-                        list += "</ul>"
+                        alist += "</ul>"
                         $('#form-list').append(ascq_me_container);
-                        $('#form-list').append(list);
+                        $('#form-list').append(alist);
                         // neuro_qol
                         var neuro_qol_container = "<div onclick='openCloseList(this)' style='cursor:pointer;'><div class='list-title-close'><b>Neuro-QOL</b></div></div>"
-                        var list = "<ul style='list-style:none;margin:0px;padding:0px;display:none'>"
+                        var blist = "<ul style='list-style:none;margin:0px;padding:0px;display:none'>"
                         for (var i=0; i < neuro_qol_forms.length; i++) {
                             var myform = "<li><input type='checkbox' value='"+forms[i].OID+"' desc='"+ forms[i].Name +"'>"+forms[i].Name+"</input></li>";
-                            list += myform;
+                            blist += myform;
                         }
-                        list += "</ul>"
+                        blist += "</ul>"
                         $('#form-list').append(neuro_qol_container);
-                        $('#form-list').append(list);
+                        $('#form-list').append(blist);
                         // nih tb
                         var nih_tb_container = "<div onclick='openCloseList(this)' style='cursor:pointer;'><div class='list-title-close'><b>NIH TB</b></div></div>"
                         var list = "<ul style='list-style:none;margin:0px;padding:0px;display:none'>"
