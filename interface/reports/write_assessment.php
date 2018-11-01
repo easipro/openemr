@@ -20,6 +20,12 @@
 // Author:   Shiqiang Tao <shiqiang.tao@uky.edu>
 //
 // +------------------------------------------------------------------------------+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'path/to/PHPMailer/src/Exception.php';
+require 'path/to/PHPMailer/src/PHPMailer.php';
+require 'path/to/PHPMailer/src/SMTP.php';
 
 //SANITIZE ALL ESCAPES
 $sanitize_all_escapes=true;
@@ -50,15 +56,11 @@ $status = $_POST['status'];
               VALUES('$formOID', '$formName', 1, '$expiration', '$pid', '$assessmentOID', '$status')";
     sqlStatement($query);
 
-		<?php
+		
 		// the message
-		$msg = "First line of text\nSecond line of text";
-
-		// use wordwrap() if lines are longer than 70 characters
-		$msg = wordwrap($msg,70);
+		$msg = "Dr. Admin has ordered a new measurement for you";
 
 		// send email
-		mail("someone@example.com","My subject",$msg);
-?>
-    
+		mail("strongtsq@gmail.com","New Measurement Available",$msg);
+
 ?>
