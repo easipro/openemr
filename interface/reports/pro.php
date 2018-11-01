@@ -295,22 +295,32 @@ require_once "$srcdir/formdata.inc.php";
                         for (var i=0; i < forms.length; i++) {
                             if(forms[i].Name.startsWith("ASCQ-Me")){
                                 ascq_me_forms.push(forms[i])
-                            }else if(forms[i].Name.startsWith("Neuro-QoL")||forms[i].Name.startsWith("Neuro-QOL")){
+                            }
+                            if(forms[i].Name.startsWith("Neuro-QoL")||forms[i].Name.startsWith("Neuro-QOL")){
                                 neuro_qol_forms.push(forms[i])
-                            }else if(forms[i].Name.startsWith("NIH TB")){
+                            }
+                            if(forms[i].Name.startsWith("NIH TB")){
                                 nih_tb_forms.push(forms[i])
-                            }else if(forms[i].Name.startsWith("PROMIS")){
+                            }
+
+                            if(forms[i].Name.startsWith("PROMIS")){
                                 promis_forms.push(forms[i])
-                            }else if(forms[i].Name.startsWith("SCI-FI")){
+                            }
+
+                            if(forms[i].Name.startsWith("SCI-FI")){
                                 sci_fi_forms.push(forms[i])
-                            }else if(forms[i].Name.startsWith("SCI-QOL")||forms[i].Name.startsWith("SCI-QoL")){
+                            }
+
+                            if(forms[i].Name.startsWith("SCI-QOL")||forms[i].Name.startsWith("SCI-QoL")){
                                 sci_qol_forms.push(forms[i])
-                            }else if(forms[i].Name.startsWith("TBI-QOL")||forms[i].Name.startsWith("TBI-QoL")){
+                            }
+
+                            if(forms[i].Name.startsWith("TBI-QOL")||forms[i].Name.startsWith("TBI-QoL")){
                                 tbi_qol_forms.push(forms[i])
                             }
                         }
 
-                        alert(neuro_qol_forms.join(","));
+                        // alert(neuro_qol_forms.join(","));
                         // ascq
                         var ascq_me_container = "<div onclick='openCloseList(this)' style='cursor:pointer;'><div class='list-title-close'><b>ASCQ-Me</b></div></div>"
                         var list = "<ul style='list-style:none;margin:0px;padding:0px;display:none'>"
