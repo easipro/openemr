@@ -46,7 +46,7 @@ require_once "$srcdir/formdata.inc.php";
         <style>
             .list-title-close, .list-title-open{
                 position: relative;
-                padding:5px;
+                padding:20px 5px 5px 5px;
                 min-width:500px;
                 background-color: #cceeff;
             }
@@ -54,8 +54,8 @@ require_once "$srcdir/formdata.inc.php";
                 position: absolute;
                 display: block;
                 content: " ";
-                left: 0;
-                bottom: 5px;
+                left: 5px;
+                bottom: 7px;
                 width: 0;
                 height: 0;
                 border-color: transparent;
