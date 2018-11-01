@@ -296,7 +296,7 @@ require_once "$srcdir/formdata.inc.php";
                             if(forms[i].Name.startsWith("ASCQ-Me")){
                                 ascq_me_forms.push(forms[i])
                             }else if(forms[i].Name.startsWith("Neuro-QoL")||forms[i].Name.startsWith("Neuro-QOL")){
-                                alert(forms[i].Name);
+                                // alert(forms[i].Name);
                                 neuro_qol_forms.push(forms[i])
                             }else if(forms[i].Name.startsWith("NIH TB")){
                                 nih_tb_forms.push(forms[i])
