@@ -310,6 +310,14 @@ require_once "$srcdir/formdata.inc.php";
                                 tbi_qol_forms.push(forms[i])
                             }
                         }
+                        alert(forms.length);
+                        alert(ascq_me_forms.length);
+                        alert(neuro_qol_forms.length);
+                        alert(nih_tb_forms.length);
+                        alert(promis_forms.length);
+                        alert(sci_fi_forms.length);
+                        alert(sci_qol_forms.length);
+                        alert(tbi_qol_forms.length);
                         
 
                         // ascq
