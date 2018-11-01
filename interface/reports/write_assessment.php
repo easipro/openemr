@@ -20,13 +20,6 @@
 // Author:   Shiqiang Tao <shiqiang.tao@uky.edu>
 //
 // +------------------------------------------------------------------------------+
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-require 'path/to/PHPMailer/src/Exception.php';
-require 'path/to/PHPMailer/src/PHPMailer.php';
-require 'path/to/PHPMailer/src/SMTP.php';
-
 //SANITIZE ALL ESCAPES
 $sanitize_all_escapes=true;
 //
@@ -57,10 +50,10 @@ $status = $_POST['status'];
     sqlStatement($query);
 
 		
-		// the message
-		$msg = "Dr. Admin has ordered a new measurement for you";
+		$to = "strongtsq@gmail.com";
+    $subject = "Subject of your email";
+    $email_body = "The text for the mail...";
 
-		// send email
-		mail("strongtsq@gmail.com","New Measurement Available",$msg);
+    mail($to, $subject, $email_body);
 
 ?>
