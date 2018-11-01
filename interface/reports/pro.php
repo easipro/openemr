@@ -249,13 +249,39 @@ require_once "$srcdir/formdata.inc.php";
                     success: function(data) { 
                         $('#form-list').html("");
                         var forms = data.Form;
-                        var list = "<ul style='list-style:none;margin:0px;padding:0px;'>"
+                        var ascq_me_forms = []
+                        var neuro_qol_forms = []
+                        var nih_tb_forms = []
+                        var promis_forms = []
+                        var sci_fi_forms = []
+                        var sci_qol_forms = []
+                        var tbi_qol_forms = []
                         for (var i=0; i < forms.length; i++) {
+                            if(forms[i].Name.startWith("ASCQ-Me")){
+                                ascq_me_forms.push(forms[i])
+                            }else if(forms[i].Name.startWith("Neuro-QoL")||forms[i].Name.startWith("Neuro-QOL")){
+                                neuro_qol_forms.push(forms[i])
+                            }else if(forms[i].Name.startWith("NIH TB")){
+                                nih_tb_forms.push(forms[i])
+                            }else if(forms[i].Name.startWith("PROMIS")){
+                                promis_forms.push(forms[i])
+                            }else if(forms[i].Name.startWith("SCI-FI")){
+                                sci_fi_forms.push(forms[i])
+                            }else if(forms[i].Name.startWith("SCI-QOL")||forms[i].Name.startWith("SCI-QoL")){
+                                sci_qol_forms.push(forms[i])
+                            }else if(forms[i].Name.startWith("TBI-QOL")||forms[i].Name.startWith("TBI-QoL")){
+                                tbi_qol_forms.push(forms[i])
+                            }
+                        }
+                        var ascq_me_container = "<div onclick='$(this).next().toggle();' style='cursor:pointer;'><span><b>ASCQ-ME</b></span></div>"
+                        var ascq_me_list = "<ul style='list-style:none;margin:0px;padding:0px;display:none'>"
+                        for (var i=0; i < ascq_me_forms.length; i++) {
                             var myform = "<li><input type='checkbox' value='"+forms[i].OID+"' desc='"+ forms[i].Name +"'>"+forms[i].Name+"</input></li>";
                             list += myform;
                         }
                         list += "</ul>"
-                        $('#form-list').append(list);
+                        $('#form-list').append(ascq_me_container);
+                        $('#form-list').append(ascq_me_list);
                     },
                 
                     error: function(jqXHR, textStatus, errorThrown) {
