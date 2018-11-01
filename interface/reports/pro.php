@@ -285,13 +285,13 @@ require_once "$srcdir/formdata.inc.php";
                     success: function(data) { 
                         $('#form-list').html("");
                         var forms = data.Form;
-                        var ascq_me_forms = []
-                        var neuro_qol_forms = []
-                        var nih_tb_forms = []
-                        var promis_forms = []
-                        var sci_fi_forms = []
-                        var sci_qol_forms = []
-                        var tbi_qol_forms = []
+                        var ascq_me_forms = [];
+                        var neuro_qol_forms = [];
+                        var nih_tb_forms = [];
+                        var promis_forms = [];
+                        var sci_fi_forms = [];
+                        var sci_qol_forms = [];
+                        var tbi_qol_forms = [];
                         for (var i=0; i < forms.length; i++) {
                             if(forms[i].Name.startsWith("ASCQ-Me")){
                                 ascq_me_forms.push(forms[i])

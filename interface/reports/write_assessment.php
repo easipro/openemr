@@ -49,4 +49,16 @@ $status = $_POST['status'];
     $query = "INSERT INTO assessments (form_oid, form_name, user_id, deadline, patient_id, assessment_oid, status)
               VALUES('$formOID', '$formName', 1, '$expiration', '$pid', '$assessmentOID', '$status')";
     sqlStatement($query);
+
+		<?php
+		// the message
+		$msg = "First line of text\nSecond line of text";
+
+		// use wordwrap() if lines are longer than 70 characters
+		$msg = wordwrap($msg,70);
+
+		// send email
+		mail("someone@example.com","My subject",$msg);
+?>
+    
 ?>
