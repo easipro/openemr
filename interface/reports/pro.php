@@ -309,6 +309,7 @@ require_once "$srcdir/formdata.inc.php";
                                 tbi_qol_forms.push(forms[i])
                             }
                         }
+                        // ascq
                         var ascq_me_container = "<div onclick='openCloseList(this)' style='cursor:pointer;'><div class='list-title-close'><b>ASCQ-ME</b></div></div>"
                         var list = "<ul style='list-style:none;margin:0px;padding:0px;display:none'>"
                         for (var i=0; i < ascq_me_forms.length; i++) {
@@ -317,6 +318,26 @@ require_once "$srcdir/formdata.inc.php";
                         }
                         list += "</ul>"
                         $('#form-list').append(ascq_me_container);
+                        $('#form-list').append(list);
+                        // neuro_qol
+                        var neuro_qol_container = "<div onclick='openCloseList(this)' style='cursor:pointer;'><div class='list-title-close'><b>Neuro-QOL</b></div></div>"
+                        var list = "<ul style='list-style:none;margin:0px;padding:0px;display:none'>"
+                        for (var i=0; i < neuro_qol_forms.length; i++) {
+                            var myform = "<li><input type='checkbox' value='"+forms[i].OID+"' desc='"+ forms[i].Name +"'>"+forms[i].Name+"</input></li>";
+                            list += myform;
+                        }
+                        list += "</ul>"
+                        $('#form-list').append(neuro_qol_container);
+                        $('#form-list').append(list);
+                        // nih tb
+                        var nih_tb_container = "<div onclick='openCloseList(this)' style='cursor:pointer;'><div class='list-title-close'><b>NIH TB</b></div></div>"
+                        var list = "<ul style='list-style:none;margin:0px;padding:0px;display:none'>"
+                        for (var i=0; i < nih_tb_forms.length; i++) {
+                            var myform = "<li><input type='checkbox' value='"+forms[i].OID+"' desc='"+ forms[i].Name +"'>"+forms[i].Name+"</input></li>";
+                            list += myform;
+                        }
+                        list += "</ul>"
+                        $('#form-list').append(nih_tb_container);
                         $('#form-list').append(list);
                     },
                 
