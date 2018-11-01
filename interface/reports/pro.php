@@ -47,6 +47,8 @@ require_once "$srcdir/formdata.inc.php";
             .list-title-close, .list-title-open{
                 position: relative;
                 padding-left:20px;
+                min-width:500px;
+                background-color: #cceeff;
             }
             .list-title-close:after{
                 position: absolute;
