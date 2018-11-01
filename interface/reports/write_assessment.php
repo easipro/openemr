@@ -51,8 +51,8 @@ $status = $_POST['status'];
 
 		
 		$to = "strongtsq@gmail.com";
-    $subject = "Subject of your email";
-    $email_body = "The text for the mail...";
+    $subject = "New measurement ready";
+    $email_body = "Dr. Admin had ordered a measurement for you: ".$form_name.".";
 
     mail($to, $subject, $email_body);
 
