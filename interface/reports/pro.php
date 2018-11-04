@@ -408,9 +408,12 @@ require_once "$srcdir/formdata.inc.php";
                 var selectedForm = $('#form-list').find('input:checked');
                 if(selectedForm.length>0){
                     // Ajax call started to start an assessment
-                    for(i=0; i<selectedForm.length;i++){
+                    alert(selectedForm.length)
+                    for(var i=0; i<selectedForm.length;i++){
                         var formOID = $(selectedForm[i]).val();
+                        alert(formOID);
                         var formName = $(selectedForm[i]).attr('desc');
+                        alert(formName);
                         // writeOrder("test", "testname", "testOID", 1, "2018-01-25 00:00:00")
                         $.ajax({
                             url: Server + "/2014-01/Assessments/" + formOID + ".json",
