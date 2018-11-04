@@ -409,8 +409,8 @@ require_once "$srcdir/formdata.inc.php";
                 if(selectedForm.length>0){
                     // Ajax call started to start an assessment
                     for(i=0; i<selectedForm.length;i++){
-                        var formOID = selectedForm[i].val();
-                        var formName = selectedForm[i].attr('desc');
+                        var formOID = $(selectedForm[i]).val();
+                        var formName = $(selectedForm[i]).attr('desc');
                         // writeOrder("test", "testname", "testOID", 1, "2018-01-25 00:00:00")
                         $.ajax({
                             url: Server + "/2014-01/Assessments/" + formOID + ".json",
