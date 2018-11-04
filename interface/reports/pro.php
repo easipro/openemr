@@ -410,39 +410,39 @@ require_once "$srcdir/formdata.inc.php";
                     // Ajax call started to start an assessment
                     alert(selectedForm.length)
                     for(var i=0; i<selectedForm.length;i++){
-                        var formOID = $(selectedForm[i]).val();
-                        alert(formOID);
-                        var formName = $(selectedForm[i]).attr('desc');
-                        alert(formName);
                         // writeOrder("test", "testname", "testOID", 1, "2018-01-25 00:00:00")
-                        $.ajax({
-                            url: Server + "/2014-01/Assessments/" + formOID + ".json",
-                            cache: false,
-                            type: "POST",
-                            // TODO: assign UID value dynamically
-                            data: "UID=1",
-                            dataType: "json",
+                        function(i){
+                            var formOID = $(selectedForm[i]).val();
+                            var formName = $(selectedForm[i]).attr('desc');
+                            $.ajax({
+                                url: Server + "/2014-01/Assessments/" + formOID + ".json",
+                                cache: false,
+                                type: "POST",
+                                // TODO: assign UID value dynamically
+                                data: "UID=1",
+                                dataType: "json",
 
-                            beforeSend: function(xhr) {
-                                var bytes = Crypto.charenc.Binary.stringToBytes("BBD62935-F76F-4EC8-8834-BDAA75DAD8AB:9A35D313-E7BC-41C9-8933-3A3D73953F73");
-                                var base64 = Crypto.util.bytesToBase64(bytes);
-                                xhr.setRequestHeader("Authorization", "Basic " + base64);
-                            },
-                        
-                            success: function(data) {
-                                // OID=85746adc-e6d7-42a3-8985-859dcbf7ece2
-                                // UID=1
-                                // Expiration: Timestamp; duration: 3 days; timezone: CST
+                                beforeSend: function(xhr) {
+                                    var bytes = Crypto.charenc.Binary.stringToBytes("BBD62935-F76F-4EC8-8834-BDAA75DAD8AB:9A35D313-E7BC-41C9-8933-3A3D73953F73");
+                                    var base64 = Crypto.util.bytesToBase64(bytes);
+                                    xhr.setRequestHeader("Authorization", "Basic " + base64);
+                                },
+                            
+                                success: function(data) {
+                                    // OID=85746adc-e6d7-42a3-8985-859dcbf7ece2
+                                    // UID=1
+                                    // Expiration: Timestamp; duration: 3 days; timezone: CST
 
-                                writeOrder(formOID, formName, data.OID, data.UID, data.Expiration, 'ordered')
-                                
-                            },
-                        
-                            error: function(jqXHR, textStatus, errorThrown) {
-                                document.write(jqXHR.responseText + ':' + textStatus + ':' + errorThrown);
-                            }
-                        });
-                        // Ajax call ended 
+                                    writeOrder(formOID, formName, data.OID, data.UID, data.Expiration, 'ordered')
+                                    
+                                },
+                            
+                                error: function(jqXHR, textStatus, errorThrown) {
+                                    document.write(jqXHR.responseText + ':' + textStatus + ':' + errorThrown);
+                                }
+                            });
+                            // Ajax call ended 
+                        }
                     }
                                        
                 }else{
