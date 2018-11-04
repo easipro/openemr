@@ -411,7 +411,7 @@ require_once "$srcdir/formdata.inc.php";
                     alert(selectedForm.length)
                     for(var i=0; i<selectedForm.length;i++){
                         // writeOrder("test", "testname", "testOID", 1, "2018-01-25 00:00:00")
-                        function(i){
+                        (function(i){
                             var formOID = $(selectedForm[i]).val();
                             var formName = $(selectedForm[i]).attr('desc');
                             $.ajax({
@@ -442,7 +442,7 @@ require_once "$srcdir/formdata.inc.php";
                                 }
                             });
                             // Ajax call ended 
-                        }
+                        })(i)
                     }
                                        
                 }else{
