@@ -222,7 +222,7 @@ require_once "$srcdir/formdata.inc.php";
                         <td class="dm-ed-in-6 "><label><?php echo xlt('Name'); ?></label></td>
                         <td class="dm-ed-in-6 "><label><?php echo xlt('Deadline (CST)'); ?></label></td>
                         <td class="dm-ed-in-6 "><label><?php echo xlt('Status'); ?></label></td>
-                        <td class="dm-ed-in-6 "><label><?php echo xlt('Score'); ?></label></td>
+                        <td class="dm-ed-in-6 "><label><?php echo xlt('T-Score'); ?></label></td>
                     </tr>
                     <?php foreach ($records1 as $value1) { ?>
                         <tr>
