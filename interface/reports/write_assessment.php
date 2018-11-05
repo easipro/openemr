@@ -60,8 +60,8 @@ $status = $_POST['status'];
 		$message .= '<tbody><tr>';
 		// $message .= '<td style="color:#444444;border-collapse:collapse;font-size:11pt;font-family:proxima_nova,\'Open Sans\',\'Lucida Grande\',\'Segoe UI\',Arial,Verdana,\'Lucida Sans Unicode\',Tahoma,\'Sans Serif\';max-width:700px" align="left" valign="top" width="700">';
 
-		$message .= 'Dear John!<br>Dr. Admin has ordered a measurement for you: <b>';
-		// $message .= '$formName'
+		$message .= 'Dear John, <br>Dr. Admin has ordered a measurement for you: <b>';
+		$message .= '$formName';
 		$message .= '</b><br><b>Your measurement will close after ';
 		// $message .= '$expiration'
 		$message .= ' ,</b> so please log in and complete it before then.';
