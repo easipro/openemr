@@ -62,7 +62,7 @@ $assessmentOID = $_POST['assessmentOID'];
 		$message .= '<tbody><tr>';
 		$message .= '<td style="color:#444444;border-collapse:collapse;font-size:11pt;font-family:proxima_nova,\'Open Sans\',\'Lucida Grande\',\'Segoe UI\',Arial,Verdana,\'Lucida Sans Unicode\',Tahoma,\'Sans Serif\';max-width:700px" align="left" valign="top" width="700">';
 
-		$message .= 'Dear Dr. Admin, <br><br>John Doe has completed a measurement: <b>';
+		$message .= 'Dear Dr. Admin, <br><br>Your patient John Doe completed a measurement: <b>';
 		$message .= text($row['form_name']);
 		$message .= '</b><br>';
 		$message .= 'Please log in and review it.';
