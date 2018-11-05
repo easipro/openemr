@@ -47,4 +47,34 @@ $assessmentOID = $_POST['assessmentOID'];
 
     $query = "UPDATE assessments SET status='completed', score='$score', error='$stdErr' WHERE patient_id='$pid' AND assessment_oid='$assessmentOID'";
     sqlStatement($query);
+    $query1 = "SELECT * FROM assessments WHERE assessment_oid='$assessmentOID'";
+		$res = sqlStatement($query1);
+		$row = sqlFetchArray($res);
+
+    $to = "strongtsq@gmail.com";
+    
+    $subject = "Patient John Doe finished a measurement";
+    
+    $message = '<html><body>';
+		$message .= '<table style="border-radius:4px;border:1px #dceaf5 solid" align="center" border="0" cellpadding="0" cellspacing="0">';
+		$message .= '<tbody><tr><td>';
+		$message .= '<table style="line-height:25px" align="center" border="0" cellpadding="10" cellspacing="0">';
+		$message .= '<tbody><tr>';
+		$message .= '<td style="color:#444444;border-collapse:collapse;font-size:11pt;font-family:proxima_nova,\'Open Sans\',\'Lucida Grande\',\'Segoe UI\',Arial,Verdana,\'Lucida Sans Unicode\',Tahoma,\'Sans Serif\';max-width:700px" align="left" valign="top" width="700">';
+
+		$message .= 'Dear Dr. Admin, <br><br>John Doe has completed a measurement: <b>';
+		$message .= text($row['form_name']);
+		$message .= '</b><br>';
+		$message .= 'Please log in and review it.';
+		$message .= '<center>Go to EasiPro at: http://128.163.202.60/openemr/</center><br>If you need help or have any questions, please call us toll free at 859.218.4962 or email us at easipro@uky.edu.<br>Thanks,<br>EasiPRO Team';
+		$message.= '</td></tr></tbody></table>';
+		$message .= '</td></tr></tbody></table>';
+		$message .= '</body></html>';
+
+    $headers = "From: EasiPRO@uky.edu\r\n";
+		$headers .= "Reply-To: EasiPRO@uky.edu\r\n";
+		$headers .= "MIME-Version: 1.0\r\n";
+		$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+		
+    mail($to, $subject, $message, $headers);
 ?>
