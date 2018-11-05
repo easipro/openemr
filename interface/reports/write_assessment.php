@@ -50,9 +50,18 @@ $status = $_POST['status'];
     sqlStatement($query);
 
 		$to = "strongtsq@gmail.com";
+    
     $subject = "New measurement ready for you";
-    $email_body = "Dr. Admin had ordered a measurement for you.";
+    
+    $message = '<html><body>';
+		$message .= '<h1>Hello, World!</h1>';
+		$message .= '</body></html>';
+
+    $headers = "From: EasiPRO@uky.edu\r\n";
+		$headers .= "Reply-To: EasiPRO@uky.edu\r\n";
+		$headers .= "MIME-Version: 1.0\r\n";
+		$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 		
-    mail($to, $subject, $email_body);
+    mail($to, $subject, $message, $headers);
 
 ?>
