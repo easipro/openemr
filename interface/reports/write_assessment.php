@@ -54,19 +54,20 @@ $status = $_POST['status'];
     $subject = "New measurement ready for you";
     
     $message = '<html><body>';
-		$message .= '<table style="border-radius:4px;border:1px #dceaf5 solid" align="center" border="0" cellpadding="0" cellspacing="0">'
-		$message .= '<tbody><tr><td>'
-		$message .= '<table style="line-height:25px" align="center" border="0" cellpadding="10" cellspacing="0">'
-		$message .= '<tbody><tr>'
-		$message .= '<td style="color:#444444;border-collapse:collapse;font-size:11pt;font-family:proxima_nova,\'Open Sans\',\'Lucida Grande\',\'Segoe UI\',Arial,Verdana,\'Lucida Sans Unicode\',Tahoma,\'Sans Serif\';max-width:700px" align="left" valign="top" width="700">'
+		$message .= '<table style="border-radius:4px;border:1px #dceaf5 solid" align="center" border="0" cellpadding="0" cellspacing="0">';
+		$message .= '<tbody><tr><td>';
+		$message .= '<table style="line-height:25px" align="center" border="0" cellpadding="10" cellspacing="0">';
+		$message .= '<tbody><tr>';
+		// $message .= '<td style="color:#444444;border-collapse:collapse;font-size:11pt;font-family:proxima_nova,\'Open Sans\',\'Lucida Grande\',\'Segoe UI\',Arial,Verdana,\'Lucida Sans Unicode\',Tahoma,\'Sans Serif\';max-width:700px" align="left" valign="top" width="700">';
 
-		$message .= 'Dear John!<br>Dr. Admin has ordered a measurement for you: <b>'
-		$message .= '$formName'
-		$message .= '</b><br><b>Your measurement will close after '
-		$message .= '$expiration'
-		$message .= ' ,</b> so please log in and complete it before then.'
-		$message .= '<center><a style="border-radius:3px;font-size:15px;color:white;border:1px #1373b5 solid;text-decoration:none;padding:14px 7px 14px 7px;width:210px;max-width:210px;font-family:proxima_nova,\'Open Sans\',\'lucida grande\',\'Segoe UI\',arial,verdana,\'lucida sans unicode\',tahoma,sans-serif;margin:6px auto;display:block;background-color:#007ee6;text-align:center" href="128.163.202.60/openemr/patients" target="_blank">Go to EasiPRO</a></center><br>If you need help or have any questions, please call us toll free at 859.218.4962 or email us at easipro@uky.edu.<br>Thanks,<br>EasiPRO Team</td></tr></tbody></table>'
-		$message .= '</td></tr></tbody></table>'
+		$message .= 'Dear John!<br>Dr. Admin has ordered a measurement for you: <b>';
+		// $message .= '$formName'
+		$message .= '</b><br><b>Your measurement will close after ';
+		// $message .= '$expiration'
+		$message .= ' ,</b> so please log in and complete it before then.';
+		// $message .= '<center><a style="border-radius:3px;font-size:15px;color:white;border:1px #1373b5 solid;text-decoration:none;padding:14px 7px 14px 7px;width:210px;max-width:210px;font-family:proxima_nova,\'Open Sans\',\'lucida grande\',\'Segoe UI\',arial,verdana,\'lucida sans unicode\',tahoma,sans-serif;margin:6px auto;display:block;background-color:#007ee6;text-align:center" href="128.163.202.60/openemr/patients" target="_blank">Go to EasiPRO</a></center><br>If you need help or have any questions, please call us toll free at 859.218.4962 or email us at easipro@uky.edu.<br>Thanks,<br>EasiPRO Team</td>';
+		$message.= '</tr></tbody></table>';
+		$message .= '</td></tr></tbody></table>';
 		$message .= '</body></html>';
 
     $headers = "From: EasiPRO@uky.edu\r\n";
