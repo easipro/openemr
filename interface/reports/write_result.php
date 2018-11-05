@@ -53,7 +53,7 @@ $assessmentOID = $_POST['assessmentOID'];
 
     $to = "strongtsq@gmail.com";
     
-    $subject = "Patient John Doe finished a measurement";
+    $subject = "Patient John Doe completed a measurement";
     
     $message = '<html><body>';
 		$message .= '<table style="border-radius:4px;border:1px #dceaf5 solid" align="center" border="0" cellpadding="0" cellspacing="0">';
