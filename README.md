@@ -8,6 +8,8 @@ This fork of OpenEMR is part of the work from study EASIPRO -- The Electronic He
 # Installation
 ### Step 1. Download
 git clone git@github.com:StrongTSQ/openemr.git
+### Step 2. Move openemr folder to your webserver root directory
+Different OS may have different webserver root directory. For example, in CentOS Linux, it is /var/www/html/ and it is /Library/WebServer/Documents/.
 ### Step 2. Install Composer and NPM
 Follow instructions from https://www.open-emr.org/wiki/index.php/Composer_and_NPM
 ### Step 3. Build OpenEMR
