@@ -1,7 +1,8 @@
 # Patient Reported Outcomes (PROs)
 This fork of OpenEMR is part of the work from study EASIPRO -- The Electronic Health Record Access to Seamless Integration of PROMIS. EASIPRO grant team includes 9 collaborating Clinical and Translational Science Award (CTSA) institutions from across the United States. We have expertise in EHR integration, SMART, FHIR, and patient-reported outcomes measurement science. In this fork, we create a PRO module allowing OpenEMR to be able to work with patient reported outcomes.  
 # Installation
-    Step 1. Download
+## Step 1. Download
+
 
 
 # OpenEMR
