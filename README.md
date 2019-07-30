@@ -12,9 +12,13 @@ git clone git@github.com:StrongTSQ/openemr.git
 Follow instructions from https://www.open-emr.org/wiki/index.php/Composer_and_NPM
 ### Step 3. Build OpenEMR
 cd openemr
+
 composer install
+
 npm install
+
 npm run build
+
 composer dump-autoload -o
 ### Step 4. 
 
