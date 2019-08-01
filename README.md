@@ -4,7 +4,8 @@
 
 # EASIPRO
 This fork of OpenEMR is part of the work from study EASIPRO -- The Electronic Health Record Access to Seamless Integration of PROMIS. EASIPRO grant team includes 9 collaborating Clinical and Translational Science Award (CTSA) institutions from across the United States. We have expertise in EHR integration, SMART, FHIR, and patient-reported outcomes measurement science. In this fork, we create a PRO module allowing OpenEMR to be able to work with patient reported outcomes. 
-
+# PROs
+Patient reported outcomes (PROs) are increasingly recognized as valuable and essential information for achieving health system goals. Information from the patient's perspective is essential to supporting a patient-centred approach to care. It is also essential to understanding whether health care services and procedures make a difference to patients' health status and quality of life. Learn More >> http://www.healthmeasures.net 
 # Installation
 ### Step 1. Download
 git clone git@github.com:StrongTSQ/openemr.git
@@ -23,7 +24,7 @@ npm run build
 
 composer dump-autoload -o
 ### Step 4. 
-
+Open http://localhost/openemr in your browser and follow the OpenEMR guide to finish the configurations.
 
 ### License
 
