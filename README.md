@@ -11,9 +11,9 @@ Patient reported outcomes (PROs) are increasingly recognized as valuable and ess
 git clone git@github.com:StrongTSQ/openemr.git
 ### Step 2. Move openemr folder to your webserver root directory
 Different OS may have different webserver root directory. For example, in CentOS Linux, it is /var/www/html/ and it is /Library/WebServer/Documents/.
-### Step 2. Install Composer and NPM
+### Step 3. Install Composer and NPM
 Follow instructions from https://www.open-emr.org/wiki/index.php/Composer_and_NPM
-### Step 3. Build OpenEMR
+### Step 4. Build OpenEMR
 cd openemr
 
 composer install
@@ -23,7 +23,7 @@ npm install
 npm run build
 
 composer dump-autoload -o
-### Step 4. 
+### Step 5. Configure Database and Admin Account
 Open http://localhost/openemr in your browser and follow the OpenEMR guide to finish the configurations.
 
 ### License
