@@ -10,6 +10,8 @@ Patient reported outcomes (PROs) are increasingly recognized as valuable and ess
 ### Step 1. Download
 git clone git@github.com:StrongTSQ/openemr.git
 
+cd openemr
+
 git checkout rel-500
 ### Step 2. Move openemr folder to your webserver root directory
 Different OS may have different webserver root directory. For example, in CentOS Linux, it is /var/www/html/ and it is /Library/WebServer/Documents/ on MAC OSX.
