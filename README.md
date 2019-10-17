@@ -12,7 +12,7 @@ git clone git@github.com:StrongTSQ/openemr.git
 
 git checkout rel-500
 ### Step 2. Move openemr folder to your webserver root directory
-Different OS may have different webserver root directory. For example, in CentOS Linux, it is /var/www/html/ and it is /Library/WebServer/Documents/.
+Different OS may have different webserver root directory. For example, in CentOS Linux, it is /var/www/html/ and it is /Library/WebServer/Documents/ on MAC OSX.
 ### Step 3. Install Composer and NPM
 Follow instructions from https://www.open-emr.org/wiki/index.php/Composer_and_NPM
 ### Step 4. Build OpenEMR
