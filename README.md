@@ -1,6 +1,6 @@
 # OpenEMR
 
-[OpenEMR](http://open-emr.org) is the most popular open source electronic health records and medical practice management solution. [ONC certified](http://open-emr.org/wiki/index.php/OpenEMR_Wiki_Home_Page#ONC_Ambulatory_EHR_Certification) with international usage, OpenEMR's goal is a superior alternative to its proprietary counterparts.
+[OpenEMR](http://open-emr.org) is the most popular open source electronic health records and medical practice management solution. [ONC certified](http://open-emr.org/wiki/index.php/OpenEMR_Wiki_Home_Page#ONC_Ambulatory_EHR_Certification) with international usage, OpenEMR's goal is a superior alternative to its proprietary counterparts. Official OpenEMR code base can be found [here](https://github.com/openemr/openemr).
 
 # EASIPRO
 This fork of OpenEMR is part of the work from study EASIPRO -- The Electronic Health Record Access to Seamless Integration of PROMIS. EASIPRO grant team includes 9 collaborating Clinical and Translational Science Award (CTSA) institutions from across the United States. We have expertise in EHR integration, SMART, FHIR, and patient-reported outcomes measurement science. In this fork, we create a PRO module allowing OpenEMR to be able to work with patient reported outcomes. 
